@@ -32,6 +32,7 @@ Route::middleware('auth')->group(function () {
 
     // Admin Routes
     Route::middleware('admin')->prefix('admin')->name('admin.')->group(function () {
+        Route::redirect('/', '/admin/dashboard');
         Route::get('/dashboard', [AdminController::class, 'index'])->name('dashboard');
         Route::get('/users/{user}', [AdminController::class, 'showUser'])->name('users.show');
         Route::patch('/users/{user}/role', [AdminController::class, 'updateRole'])->name('users.update_role');
