@@ -10,7 +10,7 @@
     }">
         <h1 class="text-3xl font-bold text-gray-800 mb-6">{{ __('admin.user_details') }}</h1>
 
-        <div class="flex flex-col sm:flex-row items-start sm:items-center mb-6 bg-gray-50 p-4 rounded-lg border">
+        <div class="flex flex-col sm:flex-row items-start sm:items-center mb-6 bg-gray-50 p-4 rounded-lg border-1 border-gray-200">
             <img src="{{ $user->avatar_url }}" alt="{{ $user->name }}" class="w-24 h-24 rounded-full object-cover border-4 border-sky-400 mr-6 mb-4 sm:mb-0">
             <div>
                 <h2 class="text-2xl font-semibold text-gray-900 mb-1">{{ $user->name }}</h2>
@@ -35,19 +35,19 @@
         </div>
 
         <div class="grid grid-cols-1 md:grid-cols-4 gap-6 mb-8">
-            <div class="bg-gray-50 rounded-lg p-5 border">
+            <div class="bg-gray-50 rounded-lg p-5 border-1 border-gray-200">
                 <p class="text-lg font-semibold text-gray-700">{{ __('admin.images_uploaded') }}</p>
                 <p class="text-3xl font-bold text-sky-600 mt-1">{{ number_format($user->images_count) }}</p>
             </div>
-            <div class="bg-gray-50 rounded-lg p-5 border">
+            <div class="bg-gray-50 rounded-lg p-5 border-1 border-gray-200">
                 <p class="text-lg font-semibold text-gray-700">{{ __('admin.storage_used') }}</p>
                 <p class="text-3xl font-bold text-sky-600 mt-1">{{ number_format($user->images_sum_size / 1024 / 1024, 2) }} MB</p>
             </div>
-            <div class="bg-gray-50 rounded-lg p-5 border">
+            <div class="bg-gray-50 rounded-lg p-5 border-1 border-gray-200">
                 <p class="text-lg font-semibold text-gray-700">{{ __('admin.links_shortened') }}</p>
                 <p class="text-3xl font-bold text-sky-600 mt-1">{{ number_format($user->links_count) }}</p>
             </div>
-            <div class="bg-gray-50 rounded-lg p-5 border">
+            <div class="bg-gray-50 rounded-lg p-5 border-1 border-gray-200">
                 <p class="text-lg font-semibold text-gray-700">{{ __('admin.link_views') }}</p>
                 <p class="text-3xl font-bold text-sky-600 mt-1">{{ number_format($totalUserLinkViews) }}</p>
             </div>
@@ -63,7 +63,7 @@
                             : route('img.show.slug', $image);
                     @endphp
 
-                    <div class="group relative border rounded-lg shadow-sm bg-white overflow-hidden flex flex-col justify-between transition-all duration-200 hover:shadow-md">
+                    <div class="group relative border-0 rounded-lg shadow-sm bg-white overflow-hidden flex flex-col justify-between transition-all duration-200 hover:shadow-md">
                         <div class="relative w-full aspect-video flex items-center justify-center bg-gray-100 rounded-t-lg">
                             @if(Str::startsWith($image->mime, 'video/'))
                                 <video controls class="absolute inset-0 w-full h-full object-contain rounded-t-lg">
@@ -108,7 +108,7 @@
 
         <h3 class="text-2xl font-bold text-gray-800 mb-4 mt-8">{{ __('admin.user_links') }}</h3> {{-- New lang key --}}
         @if($userLinks->isNotEmpty())
-            <div class="overflow-x-auto bg-white border rounded shadow mb-6">
+            <div class="overflow-x-auto bg-white border-0 rounded shadow mb-6">
                 <table class="min-w-full divide-y divide-gray-200">
                     <thead class="bg-gray-50">
                         <tr>
