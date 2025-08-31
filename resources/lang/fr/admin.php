@@ -45,4 +45,5 @@ return [
     'sort_by_links' => 'Trier par : Liens',
     'user_links' => 'Liens Courts de l\'utilisateur',
     'no_user_links' => 'Cet utilisateur n\'a pas encore créé de liens.',
+    'link_views' => 'Vues de Liens',
 ];

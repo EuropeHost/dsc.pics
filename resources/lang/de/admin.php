@@ -45,4 +45,5 @@ return [
     'sort_by_links' => 'Sortieren nach: Links',
     'user_links' => 'Kurzlinks des Nutzers',
     'no_user_links' => 'Dieser Nutzer hat noch keine Links erstellt.',
+    'link_views' => 'Linkaufrufe',
 ];

@@ -45,4 +45,5 @@ return [
     'sort_by_links' => 'Sort by: Links',
     'user_links' => 'User\'s Short Links',
     'no_user_links' => 'This user has not created any links yet.',
+    'link_views' => 'Link Views',
 ];

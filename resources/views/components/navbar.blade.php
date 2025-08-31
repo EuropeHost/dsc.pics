@@ -77,7 +77,7 @@
                         <i class="bi bi-speedometer"></i>
                         <span>{{ __('content.dashboard') }}</span>
                     </a>
-                    <a href="{{ route('profile.show', $user->id) }}"
+                    <a href="{{ route('profile.show') }}"
                         class="block text-gray-700 duration-255 hover:bg-gray-100 duration-255 hover:text-sky-600 font-medium flex items-center space-x-2 text-sm px-4 py-2">
                         <i class="bi bi-person"></i>
                         <span>{{ __('profile.my_profile') }}</span>
