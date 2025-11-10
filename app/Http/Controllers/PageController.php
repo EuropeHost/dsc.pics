@@ -9,6 +9,7 @@ use App\Models\Link;
 use App\Models\LinkView;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\App;
+use Parsedown;
 
 class PageController extends Controller
 {
@@ -124,9 +125,12 @@ class PageController extends Controller
 
         abort_if(!is_array($legal) || !isset($legal['title'], $legal['content']), 404);
 
+        $parsedown = new Parsedown();
+        $htmlContent = $parsedown->text($legal['content']);
+
         return view('pages.legal', [
             'title' => $legal['title'],
-            'content' => $legal['content'],
+            'content' => $htmlContent,
         ]);
     }
 }
