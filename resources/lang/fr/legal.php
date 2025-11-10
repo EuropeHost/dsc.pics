@@ -97,4 +97,35 @@ En utilisant cette plateforme, vous acceptez ces conditions.
 Nous pouvons les mettre à jour périodiquement. L’utilisation continue implique votre consentement.
 EOT
 	],
+
+    'cookies' => [
+        'title' => 'Politique de cookies',
+        'content' => <<<EOT
+## Que sont les cookies ?
+
+Les cookies sont de petits fichiers de données stockés sur votre appareil (ordinateur ou appareil mobile) lorsque vous visitez un site web. Ils sont largement utilisés pour "se souvenir" de vous et de vos préférences, soit pour une seule visite (via un "cookie de session"), soit pour plusieurs visites répétées (à l'aide d'un "cookie persistant").
+
+## Comment nous utilisons les cookies
+
+DCPic.eu utilise un nombre minimal de cookies strictement pour les fonctionnalités essentielles :
+
+- **Cookies de session :** Ce sont des cookies temporaires qui restent dans le fichier de cookies de votre navigateur uniquement jusqu'à ce que vous quittiez le site. Ils sont essentiels pour permettre à la plateforme de se souvenir de votre statut de connexion et d'autres informations spécifiques à la session lorsque vous naviguez.
+- **Cookie de préférence de langue :** Un cookie persistant est utilisé pour mémoriser votre préférence linguistique, afin que vous n'ayez pas à la sélectionner à chaque visite.
+- **Cookie de préférence de thème :** Un cookie persistant est utilisé pour mémoriser votre préférence de thème (mode clair/sombre).
+
+## Cookies tiers
+
+DCPic.eu **n'utilise pas** de cookies tiers à des fins de suivi, de publicité ou d'analyse.
+
+## Vos choix concernant les cookies
+
+Vous pouvez choisir d'accepter ou de refuser les cookies. La plupart des navigateurs web acceptent automatiquement les cookies, mais vous pouvez généralement modifier les paramètres de votre navigateur pour refuser les cookies si vous préférez. Cependant, cela peut vous empêcher de profiter pleinement des fonctionnalités du site web.
+
+## Plus d'informations
+
+Si vous avez des questions sur notre utilisation des cookies, veuillez nous contacter à [f.ternis@xpsystems.eu](mailto:f.ternis@xpsystems.eu).
+EOT
+    ],
+
+    'more_sections' => 'Plus de sections légales',
 ];

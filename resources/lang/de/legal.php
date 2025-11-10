@@ -16,11 +16,11 @@ Verantwortlich nach § 5 TMG:
 
 ## Urheberrecht & Eigentum
 
-Alle hochgeladenen Bilder bleiben geistiges Eigentum ihrer Ersteller.  
+Alle hochgeladenen Medien bleiben geistiges Eigentum ihrer Ersteller.  
 DCPic.eu beansprucht **keine Rechte an Inhalten**.
 
 Mit dem Upload gewähren Nutzer eine **nicht-exklusive, widerrufbare Lizenz** zur Speicherung, Bereitstellung und optionalen öffentlichen Anzeige.  
-Als öffentlich markierte Bilder können unter „neueste Uploads“ erscheinen.
+Als öffentlich markierte Medien können unter „neueste Uploads“ erscheinen.
 
 Urheberrechtsverstöße führen zur sofortigen Löschung und ggf. zur Sperrung.
 
@@ -39,14 +39,14 @@ Wir speichern nur die Daten, die zur Nutzung des Dienstes notwendig sind:
 
 - Ihre Discord-ID und Benutzername
 - E-Mail-Adresse von Discord
-- Bild-Metadaten (Dateiname, Größe, Format)
+- Medien-Metadaten (Dateiname, Größe, Format)
 - Zeitstempel und Speicherverbrauch
 
-## Sichtbarkeit der Bilder
+## Sichtbarkeit der Medien
 
-Bilder sind **standardmäßig privat**.  
+Medien sind **standardmäßig privat**.  
 Nur wer den direkten Link besitzt, kann sie ansehen.  
-Sie können Ihre Bilder optional als **öffentlich** markieren – diese erscheinen dann unter „neueste Uploads“.
+Sie können Ihre Medien optional als **öffentlich** markieren – diese erscheinen dann unter „neueste Uploads“.
 
 ## Kein Tracking & Keine Werbung
 
@@ -69,13 +69,13 @@ EOT
 	    'content' => <<<EOT
 ## Regeln zur Nutzung
 
-- Keine illegalen, schädlichen, hasserfüllten oder pornografischen Inhalte hochladen.
+- Keine illegalen, schädlichen, hasserfüllten oder expliziten Inhalte hochladen.
 - Inhalte müssen deutschem und EU-Recht entsprechen.
 - Sie tragen die volle Verantwortung für Ihre Uploads.
 
 ## Urheberrecht
 
-Sie behalten alle Rechte an Ihren Bildern.  
+Sie behalten alle Rechte an Ihren Medien.  
 Wir benötigen lediglich eine **nicht-exklusive Lizenz** zur Speicherung und Anzeige.  
 Sie können die öffentliche Sichtbarkeit jederzeit widerrufen.
 
@@ -97,4 +97,35 @@ Mit der Nutzung akzeptieren Sie diese Bedingungen.
 Diese können jederzeit angepasst werden.
 EOT
 	],
+
+    'cookies' => [
+        'title' => 'Cookie-Richtlinie',
+        'content' => <<<EOT
+## Was sind Cookies?
+
+Cookies sind kleine Datenpakete, die auf Ihrem Gerät (Computer oder Mobilgerät) gespeichert werden, wenn Sie eine Website besuchen. Sie werden häufig verwendet, um sich an Sie und Ihre Präferenzen zu "erinnern", entweder für einen einzelnen Besuch (durch ein "Sitzungscookie") oder für mehrere wiederholte Besuche (mithilfe eines "dauerhaften Cookies").
+
+## Wie wir Cookies verwenden
+
+DCPic.eu verwendet eine minimale Anzahl von Cookies, die ausschließlich für wesentliche Funktionen erforderlich sind:
+
+- **Sitzungscookies:** Dies sind temporäre Cookies, die nur so lange in der Cookie-Datei Ihres Browsers verbleiben, bis Sie die Website verlassen. Sie sind unerlässlich, damit die Plattform Ihren Anmeldestatus und andere sitzungsspezifische Informationen während der Navigation speichern kann.
+- **Sprachpräferenz-Cookie:** Ein dauerhaftes Cookie wird verwendet, um Ihre gewählte Sprachpräferenz zu speichern, damit Sie diese nicht bei jedem Besuch erneut auswählen müssen.
+- **Designpräferenz-Cookie:** Ein dauerhaftes Cookie wird verwendet, um Ihre gewählte Designpräferenz (heller/dunkler Modus) zu speichern.
+
+## Cookies von Drittanbietern
+
+DCPic.eu verwendet **keine** Cookies von Drittanbietern zu Tracking-, Werbe- oder Analysezwecken.
+
+## Ihre Wahlmöglichkeiten bezüglich Cookies
+
+Sie können Cookies akzeptieren oder ablehnen. Die meisten Webbrowser akzeptieren Cookies automatisch, aber Sie können Ihre Browsereinstellungen in der Regel ändern, um Cookies abzulehnen, wenn Sie dies bevorzugen. Dies kann jedoch dazu führen, dass Sie die Funktionen der Website nicht vollständig nutzen können.
+
+## Weitere Informationen
+
+Wenn Sie Fragen zur Verwendung von Cookies haben, kontaktieren Sie uns bitte unter [f.ternis@xpsystems.eu](mailto:f.ternis@xpsystems.eu).
+EOT
+    ],
+
+    'more_sections' => 'Weitere rechtliche Abschnitte',
 ];

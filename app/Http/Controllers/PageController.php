@@ -8,6 +8,7 @@ use App\Models\User;
 use App\Models\Link;
 use App\Models\LinkView;
 use Carbon\Carbon;
+use Illuminate\Support\Facades\App;
 
 class PageController extends Controller
 {
@@ -115,5 +116,17 @@ class PageController extends Controller
         $latestLinks = $userLinksWithViewsCount->sortByDesc('created_at')->take(5);
         
         return view('pages.dashboard', compact(['latestMedia', 'latestLinks', 'totalUserLinkViews']));
+    }
+
+    public function legal(string $section)
+    {
+        $legal = __('legal.' . $section);
+
+        abort_if(!is_array($legal) || !isset($legal['title'], $legal['content']), 404);
+
+        return view('pages.legal', [
+            'title' => $legal['title'],
+            'content' => $legal['content'],
+        ]);
     }
 }

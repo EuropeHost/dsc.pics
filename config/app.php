@@ -185,4 +185,20 @@ return [
         // 'Example' => App\Facades\Example::class,
     ])->toArray(),
 
+    /*
+    |--------------------------------------------------------------------------
+    | Legal Sections
+    |--------------------------------------------------------------------------
+    |
+    | Define the available legal sections for the application.
+    | These keys will be used to retrieve content from language files.
+    |
+    */
+    'legal_sections' => [
+        'terms',
+        'privacy',
+        'imprint',
+        'cookies',
+    ],
+
 ];

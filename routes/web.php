@@ -3,7 +3,6 @@
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\MediaController;
 use App\Http\Controllers\PageController;
-use App\Http\Controllers\LegalController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\LinkController;
@@ -59,7 +58,7 @@ Route::get('/media/{media}', [MediaController::class, 'show'])->name('media.show
 
 Route::get('/recent-uploads', [MediaController::class, 'recentUploads'])->name('media.recent');
 
-Route::get('/legal/{section}', [LegalController::class, 'show'])->name('legal.show');
+Route::get('/legal/{section}', [PageController::class, 'legal'])->name('pages.legal');
 
 Route::post('/announcement/dismiss/{id}', function ($id) {
     session()->put("announcement_dismissed_{$id}", true);

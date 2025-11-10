@@ -18,21 +18,21 @@ export default {
             },
             colors: {
                 'dscpics': {
-                    50: '#f0f9ff',    // Placeholder
-                    100: '#e0f2fe',   // Placeholder
-                    200: '#bae6fd',   // Placeholder
-                    300: '#7dd3fc',   // Placeholder
-                    400: '#38bdf8',   // Placeholder
-                    500: '#0ea5e9',   // Placeholder
-                    600: '#0284c7',   // Placeholder
-                    700: '#0369a1',   // Placeholder
-                    800: '#075985',   // Placeholder
-                    900: '#0c4a6e',   // Placeholder
-                    950: '#082f49',   // Placeholder
+                    50: '#F5F7FA',
+                    100: '#E1E8F0',
+                    200: '#C7D1DC',
+                    300: '#A4B4C4',
+                    400: '#7F93A7',
+                    500: '#5C7186',
+                    600: '#405263',
+                    700: '#2E3D4A',
+                    800: '#1D2A33',
+                    900: '#10191F',
+                    950: '#0B1115',
                 },
             },
         },
     },
 
-    plugins: [forms],
+    plugins: [forms, require('@tailwindcss/typography')],
 };

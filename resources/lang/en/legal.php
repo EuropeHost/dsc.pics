@@ -97,4 +97,35 @@ By using this platform, you agree to these terms.
 We may update them periodically. Continued usage implies consent.
 EOT
 	],
+
+    'cookies' => [
+        'title' => 'Cookie Policy',
+        'content' => <<<EOT
+## What are Cookies?
+
+Cookies are small pieces of data stored on your device (computer or mobile device) when you visit a website. They are widely used to "remember" you and your preferences, either for a single visit (through a "session cookie") or for multiple repeat visits (using a "persistent cookie").
+
+## How We Use Cookies
+
+DCPic.eu uses a minimal number of cookies strictly for essential functionality:
+
+- **Session Cookies:** These are temporary cookies that remain in the cookie file of your browser only until you leave the site. They are essential for enabling the platform to remember your login status and other session-specific information as you navigate.
+- **Locale Preference Cookie:** A persistent cookie is used to remember your chosen language preference, so you don't have to select it every time you visit.
+- **Theme Preference Cookie:** A persistent cookie is used to remember your chosen theme (light/dark mode) preference.
+
+## Third-Party Cookies
+
+DCPic.eu does **not** use any third-party cookies for tracking, advertising, or analytics purposes.
+
+## Your Choices Regarding Cookies
+
+You can choose to accept or decline cookies. Most web browsers automatically accept cookies, but you can usually modify your browser setting to decline cookies if you prefer. However, this may prevent you from taking full advantage of the website's functionality.
+
+## More Information
+
+If you have any questions about our use of cookies, please contact us at [f.ternis@xpsystems.eu](mailto:f.ternis@xpsystems.eu).
+EOT
+    ],
+
+    'more_sections' => 'More Legal Sections',
 ];
