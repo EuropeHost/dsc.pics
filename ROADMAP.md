@@ -7,11 +7,11 @@ This document outlines the planned features and refactoring work for the dsc.pic
 ### **Part 1: UI & Theming - Dark Mode Support**
 
 -   **Goal:** Implement a user-toggleable dark and light mode for a better user experience.
--   **Status:** In Progress
+-   **Status:** Completed
 -   **Steps:**
-    - [ ] 1. **Configure Tailwind:** Update `tailwind.config.js` to enable the `class` strategy for dark mode.
-    - [ ] 2. **Create Theme Toggle:** Develop a Blade component for the UI switch (e.g., a button with a sun/moon icon).
-    - [ ] 3. **Implement JavaScript:** Add logic to `resources/js/app.js` to toggle the 'dark' class on the `<html>` element and save the user's preference in `localStorage`.
+    - [x] 1. **Configure Tailwind:** Update `tailwind.config.js` to enable the `class` strategy for dark mode.
+    - [x] 2. **Create Theme Toggle:** Develop a Blade component for the UI switch (e.g., a button with a sun/moon icon).
+    - [x] 3. **Implement JavaScript:** Add logic to `resources/js/app.js` to toggle the 'dark' class on the `<html>` element and save the user's preference in `localStorage`.
     - [ ] 4. **Integrate & Style:** Add the toggle component to the main layout and update views with `dark:` prefixed utility classes to ensure the UI is polished in both modes.
 
 ---
@@ -19,17 +19,17 @@ This document outlines the planned features and refactoring work for the dsc.pic
 ### **Part 2: Core Refactor - `Image` to `Media` Model**
 
 -   **Goal:** Generalize the "Image" concept to "Media" to support a wider range of file types and future-proof the application.
--   **Status:** Not Started
+-   **Status:** Completed
 -   **Steps:**
-    - [ ] 1. **Database Migration:** Create and run a new migration to rename the `images` table to `media`.
-    - [ ] 2. **Model & Factory:**
-        - [ ] Rename `app/Models/Image.php` to `app/Models/Media.php` and update the class name.
-        - [ ] Rename `database/factories/ImageFactory.php` to `MediaFactory.php`.
-    - [ ] 3. **Controller Refactor:**
-        - [ ] Rename `app/Http/Controllers/ImageController.php` to `MediaController.php`.
-        - [ ] Update all internal logic to use the `Media` model.
-    - [ ] 4. **Update Codebase:** Systematically search and replace all occurrences of the `Image` model, its relationships (`Image::class`), and related variables (e.g., `$image` -> `$media`) across all controllers, views, and routes.
-    - [ ] 5. **Routes:** Update `routes/web.php` to use the new `MediaController` and correct route model bindings.
+    - [x] 1. **Database Migration:** Create and run a new migration to rename the `images` table to `media`.
+    - [x] 2. **Model & Factory:**
+        - [x] Rename `app/Models/Image.php` to `app/Models/Media.php` and update the class name.
+        - [x] Rename `database/factories/ImageFactory.php` to `MediaFactory.php`.
+    - [x] 3. **Controller Refactor:**
+        - [x] Rename `app/Http/Controllers/ImageController.php` to `MediaController.php`.
+        - [x] Update all internal logic to use the `Media` model.
+    - [x] 4. **Update Codebase:** Systematically search and replace all occurrences of the `Image` model, its relationships (`Image::class`), and related variables (e.g., `$image` -> `$media`) across all controllers, views, and routes.
+    - [x] 5. **Routes:** Update `routes/web.php` to use the new `MediaController` and correct route model bindings.
 
 ---
 

@@ -36,12 +36,12 @@
 
         <div class="grid grid-cols-1 md:grid-cols-4 gap-6 mb-8">
             <div class="bg-gray-50 rounded-lg p-5 border-1 border-gray-200">
-                <p class="text-lg font-semibold text-gray-700">{{ __('admin.images_uploaded') }}</p>
-                <p class="text-3xl font-bold text-sky-600 mt-1">{{ number_format($user->images_count) }}</p>
+                <p class="text-lg font-semibold text-gray-700">{{ __('admin.media_uploaded') }}</p>
+                <p class="text-3xl font-bold text-sky-600 mt-1">{{ number_format($user->media_count) }}</p>
             </div>
             <div class="bg-gray-50 rounded-lg p-5 border-1 border-gray-200">
                 <p class="text-lg font-semibold text-gray-700">{{ __('admin.storage_used') }}</p>
-                <p class="text-3xl font-bold text-sky-600 mt-1">{{ number_format($user->images_sum_size / 1024 / 1024, 2) }} MB</p>
+                <p class="text-3xl font-bold text-sky-600 mt-1">{{ number_format($user->media_sum_size / 1024 / 1024, 2) }} MB</p>
             </div>
             <div class="bg-gray-50 rounded-lg p-5 border-1 border-gray-200">
                 <p class="text-lg font-semibold text-gray-700">{{ __('admin.links_shortened') }}</p>
@@ -53,33 +53,33 @@
             </div>
         </div>
 
-        <h3 class="text-2xl font-bold text-gray-800 mb-4">{{ __('admin.user_images') }}</h3>
-        @if($userImages->isNotEmpty())
+        <h3 class="text-2xl font-bold text-gray-800 mb-4">{{ __('admin.user_media') }}</h3>
+        @if($userMedia->isNotEmpty())
             <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
-                @foreach($userImages as $image)
+                @foreach($userMedia as $media)
                     @php
-                        $viewRoute = Str::startsWith($image->mime, 'video/')
-                            ? route('vid.show.slug', $image)
-                            : route('img.show.slug', $image);
+                        $viewRoute = Str::startsWith($media->mime, 'video/')
+                            ? route('vid.show.slug', $media)
+                            : route('img.show.slug', $media);
                     @endphp
 
                     <div class="group relative border-0 rounded-lg shadow-sm bg-white overflow-hidden flex flex-col justify-between transition-all duration-200 hover:shadow-md">
                         <div class="relative w-full aspect-video flex items-center justify-center bg-gray-100 rounded-t-lg">
-                            @if(Str::startsWith($image->mime, 'video/'))
+                            @if(Str::startsWith($media->mime, 'video/'))
                                 <video controls class="absolute inset-0 w-full h-full object-contain rounded-t-lg">
-                                    <source src="{{ $viewRoute }}" type="{{ $image->mime }}">
+                                    <source src="{{ $viewRoute }}" type="{{ $media->mime }}">
                                     {{ __('content.video_not_supported') }}
                                 </video>
                             @else
                                 <img src="{{ $viewRoute }}"
-                                     alt="{{ $image->original_name }}"
+                                     alt="{{ $media->original_name }}"
                                      class="absolute inset-0 w-full h-full object-contain rounded-t-lg">
                             @endif
                         </div>
 
                         <div class="p-3 flex flex-col flex-grow">
-                            <div class="text-sm font-medium text-gray-800 truncate mb-2" title="{{ $image->original_name }}">
-                                {{ $image->original_name }}
+                            <div class="text-sm font-medium text-gray-800 truncate mb-2" title="{{ $media->original_name }}">
+                                {{ $media->original_name }}
                             </div>
                             <div class="flex-grow"></div>
                             <div class="flex justify-between items-center text-sm mt-2">
@@ -87,7 +87,7 @@
                                    class="inline-flex items-center p-2 rounded-md bg-blue-50 text-blue-700 hover:bg-blue-100 transition">
                                     <i class="bi bi-eye mr-1"></i> {{ __('content.view') }}
                                 </a>
-                                <form method="POST" action="{{ route('images.destroy', $image) }}">
+                                <form method="POST" action="{{ route('media.destroy', $media) }}">
                                     @csrf
                                     @method('DELETE')
                                     <button type="submit" class="inline-flex items-center p-2 rounded-md bg-red-50 text-red-700 hover:bg-red-100 transition">
@@ -100,10 +100,10 @@
                 @endforeach
             </div>
             <div class="mt-8 flex justify-center">
-                {{ $userImages->links('components.custom-pagination') }}
+                {{ $userMedia->links('components.custom-pagination') }}
             </div>
         @else
-            <p class="text-gray-600">{{ __('admin.no_user_images') }}</p>
+            <p class="text-gray-600">{{ __('admin.no_user_media') }}</p>
         @endif
 
         <h3 class="text-2xl font-bold text-gray-800 mb-4 mt-8">{{ __('admin.user_links') }}</h3> {{-- New lang key --}}

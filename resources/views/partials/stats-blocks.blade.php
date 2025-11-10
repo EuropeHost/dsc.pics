@@ -83,11 +83,11 @@
 
             <p class="text-lg text-gray-700">
                 <i class="bi bi-image-fill mr-2 text-sky-600"></i>
-                <strong>{{ __('content.total_images_uploaded') }}:</strong>
+                <strong>{{ __('content.total_media_uploaded') }}:</strong>
                 <span
                     class="animated-count"
                     data-start="0"
-                    data-end="{{ number_format($totalImages, 0, '.', '') }}"
+                    data-end="{{ number_format($totalMedia, 0, '.', '') }}"
                     data-decimals="0"
                 ></span>
             </p>
@@ -156,17 +156,17 @@
     </div>
 </div>
 
-{{-- Top image users ------------------------------------------------------ --}}
+{{-- Top media users ------------------------------------------------------ --}}
 <div
     class="reveal mx-auto mt-12 max-w-6xl rounded-xl border bg-white p-8 shadow-lg transition duration-300 hover:scale-105 hover:shadow-xl"
 >
     <h2 class="mb-4 text-2xl font-bold text-gray-800">
-        {{ __('content.top_image_users') }}
+        {{ __('content.top_media_users') }}
     </h2>
 
-    @if ($topImageUsers->isNotEmpty())
+    @if ($topMediaUsers->isNotEmpty())
         <ul class="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
-            @foreach ($topImageUsers as $index => $user)
+            @foreach ($topMediaUsers as $index => $user)
                 <li
                     class="flex cursor-pointer items-center space-x-3 rounded-lg bg-gray-50 p-2 transition duration-200 transform hover:scale-[1.02] hover:bg-gray-100 hover:shadow-sm"
                 >
@@ -190,10 +190,10 @@
                             <span
                                 class="animated-count"
                                 data-start="0"
-                                data-end="{{ number_format($user->image_count, 0, '.', '') }}"
+                                data-end="{{ number_format($user->media_count, 0, '.', '') }}"
                                 data-decimals="0"
                             ></span>
-                            {{ __('content.images') }}
+                            {{ __('content.media') }}
                         </p>
                     </div>
                 </li>
@@ -201,7 +201,7 @@
         </ul>
     @else
         <p class="text-gray-600">
-            {{ __('content.no_top_image_users') }}
+            {{ __('content.no_top_media_users') }}
         </p>
     @endif
 </div>

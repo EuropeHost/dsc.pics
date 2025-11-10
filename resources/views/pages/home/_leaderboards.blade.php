@@ -14,13 +14,13 @@
         // 'grid_cols_lg' will be handled dynamically inside the component
     ])
 
-    {{-- Top Image Users --}}
+    {{-- Top Media Users --}}
     @include('components.home_stat_users_container', [
-        'container_title' => __('content.top_image_users'),
+        'container_title' => __('content.top_media_users'),
         // 'no_users_message' removed as it's not needed and will use default
-        'users_collection' => $topImageUsers,
-        'count_field' => 'image_count',
-        'count_label' => __('content.images'),
+        'users_collection' => $topMediaUsers,
+        'count_field' => 'media_count',
+        'count_label' => __('content.media'),
         'decimals' => 0,
         'col_span_lg' => 'lg:col-span-full',
         // 'grid_cols_lg' will be handled dynamically inside the component

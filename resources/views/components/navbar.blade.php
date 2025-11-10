@@ -20,13 +20,13 @@
             @endphp
 
             <div class="hidden md:flex items-center space-x-4">
-                <a href="{{ route('images.my') }}"
+                <a href="{{ route('media.my') }}"
                     class="text-gray-700 duration-255 hover:text-sky-600 font-medium flex items-center space-x-1">
                     <i class="bi bi-images"></i>
-                    <span>{{ __('content.my_images') }}</span>
+                    <span>{{ __('content.my_media') }}</span>
                 </a>
 
-                <a href="{{ route('images.recent') }}"
+                <a href="{{ route('media.recent') }}"
                     class="text-gray-700 duration-255 hover:text-sky-600 font-medium flex items-center space-x-1">
                     <i class="bi bi-clock-history"></i>
                     <span>{{ __('content.recent_uploads') }}</span>
@@ -35,8 +35,8 @@
 			@endif
             </div>
         @endauth
-
-        @include('components.theme-toggle')
+		
+        <x-theme-toggle />
 		
         <div x-data="{ open: false }" class="relative z-20">
             <button @click="open = !open" class="flex items-center text-sm focus:outline-none px-2 py-1 rounded-md duration-255 hover:bg-gray-100 transition">
@@ -85,13 +85,13 @@
                         <span>{{ __('profile.my_profile') }}</span>
                     </a>
                     <div class="md:hidden">
-                        <a href="{{ route('images.my') }}"
+                        <a href="{{ route('media.my') }}"
                             class="block text-gray-700 duration-255 hover:bg-gray-100 duration-255 hover:text-sky-600 font-medium flex items-center space-x-2 text-sm px-4 py-2">
                             <i class="bi bi-images"></i>
-                            <span>{{ __('content.my_images') }}</span>
+                            <span>{{ __('content.my_media') }}</span>
                         </a>
 
-                        <a href="{{ route('images.recent') }}"
+                        <a href="{{ route('media.recent') }}"
                             class="block text-gray-700 duration-255 hover:bg-gray-100 duration-255 hover:text-sky-600 font-medium flex items-center space-x-2 text-sm px-4 py-2">
                             <i class="bi bi-clock-history"></i>
                             <span>{{ __('content.recent_uploads') }}</span>

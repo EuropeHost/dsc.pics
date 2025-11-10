@@ -61,9 +61,9 @@
                 </p>
                 <p class="mb-2 text-lg text-gray-700">
                     <i class="bi bi-image-fill mr-2 text-sky-600"></i>
-                    <strong>{{ __('content.total_images_uploaded') }}:</strong>
+                    <strong>{{ __('content.total_media_uploaded') }}:</strong>
                     <span class="animated-count" data-start="0"
-                        data-end="{{ number_format($totalImages, 0, '.', '') }}"
+                        data-end="{{ number_format($totalMedia, 0, '.', '') }}"
                         data-decimals="0"></span>
                 </p>
                 <p class="text-lg text-gray-700">
@@ -90,9 +90,9 @@
                 </h2>
                 <p class="mb-2 text-lg text-gray-700">
                     <i class="bi bi-image-fill mr-2 text-sky-600"></i>
-                    <strong>{{ __('content.images') }}:</strong>
+                    <strong>{{ __('content.media') }}:</strong>
                     <span class="animated-count" data-start="0"
-                        data-end="{{ number_format($imagesLast30Days, 0, '.', '') }}"
+                        data-end="{{ number_format($mediaLast30Days, 0, '.', '') }}"
                         data-decimals="0"></span>
                 </p>
                 <p class="text-lg text-gray-700">
@@ -119,9 +119,9 @@
                 </h2>
                 <p class="mb-2 text-lg text-gray-700">
                     <i class="bi bi-image-fill mr-2 text-sky-600"></i>
-                    <strong>{{ __('content.images') }}:</strong>
+                    <strong>{{ __('content.media') }}:</strong>
                     <span class="animated-count" data-start="0"
-                        data-end="{{ number_format($imagesLast24Hours, 0, '.', '') }}"
+                        data-end="{{ number_format($mediaLast24Hours, 0, '.', '') }}"
                         data-decimals="0"></span>
                 </p>
                 <p class="text-lg text-gray-700">

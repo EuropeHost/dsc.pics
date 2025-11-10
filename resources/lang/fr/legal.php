@@ -16,10 +16,10 @@ Responsable selon le § 5 TMG (Allemagne) :
 
 ## Droits d’auteur & Propriété
 
-Toutes les images téléversées restent la propriété intellectuelle de leurs créateurs d’origine.  
+Toutes les médias téléversées restent la propriété intellectuelle de leurs créateurs d’origine.  
 DCPic.eu et ses opérateurs **ne revendiquent aucune propriété** sur les contenus téléversés par les utilisateurs.
 
-En téléversant, les utilisateurs accordent à DCPic.eu une licence non-exclusive et révocable pour le **stockage, l’accès et la diffusion publique facultative**. Les images marquées comme publiques peuvent apparaître dans la section des téléversements récents.
+En téléversant, les utilisateurs accordent à DCPic.eu une licence non-exclusive et révocable pour le **stockage, l’accès et la diffusion publique facultative**. Les médias marquées comme publiques peuvent apparaître dans la section des téléversements récents.
 
 Tout contenu illicite sera supprimé immédiatement et pourra entraîner la suspension du compte.
 
@@ -38,14 +38,14 @@ Nous ne collectons que les données minimales nécessaires au bon fonctionnement
 
 - Identifiant et nom d’utilisateur Discord
 - Adresse e-mail fournie par Discord
-- Métadonnées des images téléversées (nom, taille, format)
+- Métadonnées des médias téléversées (nom, taille, format)
 - Utilisation du stockage et horodatages
 
-## Visibilité des images
+## Visibilité des médias
 
-Par défaut, les images téléversées sont **privées**.  
+Par défaut, les médias téléversées sont **privées**.  
 Seules les personnes disposant du lien direct peuvent les consulter.  
-Les utilisateurs peuvent, s’ils le souhaitent, marquer leurs images comme **publiques**, ce qui les affichera dans les « téléversements récents ».
+Les utilisateurs peuvent, s’ils le souhaitent, marquer leurs médias comme **publiques**, ce qui les affichera dans les « téléversements récents ».
 
 ## Pas de traçage ni de publicité
 
@@ -77,7 +77,7 @@ EOT
 
 Vous conservez l’intégralité des droits sur vos contenus téléversés.  
 Nous demandons uniquement une **licence non-exclusive** pour stocker et diffuser votre contenu.  
-Vous pouvez révoquer l’accès public à tout moment en supprimant ou rendant privé vos images.
+Vous pouvez révoquer l’accès public à tout moment en supprimant ou rendant privé vos médias.
 
 ## Limites de stockage
 

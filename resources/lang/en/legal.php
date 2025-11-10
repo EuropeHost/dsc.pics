@@ -16,10 +16,10 @@ Responsible according to § 5 TMG (Germany):
 
 ## Copyright & Ownership
 
-All uploaded images remain the intellectual property of their original creators.  
+All uploaded media remain the intellectual property of their original creators.  
 DCPic.eu and its operators **do not claim ownership** of any user-uploaded content.
 
-By uploading, users grant DCPic.eu a non-exclusive, revocable license for **storage, access, and optional public delivery**. Images marked public may appear in the recent uploads section.
+By uploading, users grant DCPic.eu a non-exclusive, revocable license for **storage, access, and optional public delivery**. Media marked public may appear in the recent uploads section.
 
 Infringing content will be removed immediately and may result in account suspension.
 
@@ -38,14 +38,14 @@ We store only the minimal data required to operate the platform effectively:
 
 - Discord ID and username
 - Email address provided by Discord
-- Uploaded image metadata (name, size, format)
+- Uploaded media metadata (name, size, format)
 - Storage usage and timestamps
 
-## Image Visibility
+## Media Visibility
 
-By default, uploaded images are **private**.  
+By default, uploaded media are **private**.  
 Only users with a direct link can view them.  
-Users may optionally mark images as **public**, which will list them under "recent uploads".
+Users may optionally mark media as **public**, which will list them under "recent uploads".
 
 ## No Tracking or Ads
 
@@ -77,7 +77,7 @@ EOT
 
 You retain full copyright over your uploaded content.  
 We only request a **non-exclusive license** to store and deliver your content.  
-You can revoke public access at any time by deleting or unpublishing your images.
+You can revoke public access at any time by deleting or unpublishing your media.
 
 ## Storage Limits
 

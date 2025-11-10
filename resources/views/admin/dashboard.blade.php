@@ -10,8 +10,8 @@
         </div>
 
         <div class="bg-white shadow rounded-lg p-6">
-            <p class="text-lg font-semibold text-gray-700">{{ __('admin.total_images') }}</p>
-            <p class="text-4xl font-bold text-sky-600 mt-2">{{ number_format($totalImages) }}</p>
+            <p class="text-lg font-semibold text-gray-700">{{ __('admin.total_media') }}</p>
+            <p class="text-4xl font-bold text-sky-600 mt-2">{{ number_format($totalMedia) }}</p>
         </div>
 
         <div class="bg-white shadow rounded-lg p-6">
@@ -49,7 +49,7 @@
                 let aValue = a[this.sortBy];
                 let bValue = b[this.sortBy];
 
-                if (['images_count', 'images_sum_size', 'links_count'].includes(this.sortBy)) {
+                if (['media_count', 'media_sum_size', 'links_count'].includes(this.sortBy)) {
                     aValue = parseFloat(aValue || 0);
                     bValue = parseFloat(bValue || 0);
                 }
@@ -102,8 +102,8 @@
                     class="border-gray-300 rounded-md shadow-sm focus:border-sky-500 focus:ring focus:ring-sky-500 focus:ring-opacity-50 px-4 py-2">
                 <option value="created_at">{{ __('admin.sort_by_created') }}</option>
                 <option value="name">{{ __('admin.sort_by_name') }}</option>
-                <option value="images_count">{{ __('admin.sort_by_images') }}</option>
-                <option value="images_sum_size">{{ __('admin.sort_by_storage') }}</option>
+                <option value="media_count">{{ __('admin.sort_by_media') }}</option>
+                <option value="media_sum_size">{{ __('admin.sort_by_storage') }}</option>
                 <option value="links_count">{{ __('admin.sort_by_links') }}</option> {{-- NEW: Sort by links --}}
             </select>
 
@@ -124,7 +124,7 @@
                             {{ __('admin.role') }}
                         </th>
                         <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                            {{ __('admin.images_uploaded') }}
+                            {{ __('admin.media_uploaded') }}
                         </th>
                         <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                             {{ __('admin.storage_used') }}
@@ -161,8 +161,8 @@
                                 </a>
                             </td>
                             <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500" x-text="user.role"></td>
-                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500" x-text="user.images_count"></td>
-                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500" x-text="formatBytes(user.images_sum_size)"></td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500" x-text="user.media_count"></td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500" x-text="formatBytes(user.media_sum_size)"></td>
                             <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500" x-text="user.links_count"></td>
                             <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500" x-text="new Date(user.created_at).toLocaleDateString()"></td>
                             <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
