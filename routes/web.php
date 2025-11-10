@@ -1,3 +1,5 @@
+<?php
+
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\MediaController;
 use App\Http\Controllers\PageController;
