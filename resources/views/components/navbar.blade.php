@@ -35,6 +35,8 @@
 			@endif
             </div>
         @endauth
+
+        @include('components.theme-toggle')
 		
         <div x-data="{ open: false }" class="relative z-20">
             <button @click="open = !open" class="flex items-center text-sm focus:outline-none px-2 py-1 rounded-md duration-255 hover:bg-gray-100 transition">
