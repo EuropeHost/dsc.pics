@@ -30,6 +30,8 @@ export default {
                     900: '#10191F',
                     950: '#0B1115',
                 },
+                'dev_dscpics-500': '#57abff',
+                'dscpics-500': '#57abff',
             },
         },
     },
