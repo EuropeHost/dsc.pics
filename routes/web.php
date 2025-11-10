@@ -1,9 +1,5 @@
-<?php
-
-use Illuminate\Support\Facades\Route;
-use Illuminate\Http\Request;
 use App\Http\Controllers\AuthController;
-use App\Http\Controllers\ImageController;
+use App\Http\Controllers\MediaController;
 use App\Http\Controllers\PageController;
 use App\Http\Controllers\LegalController;
 use App\Http\Controllers\AdminController;
@@ -25,10 +21,10 @@ Route::middleware('auth')->group(function () {
 	Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
     Route::get('/dashboard', [PageController::class, 'dashboard'])->name('dashboard');
 	
-    Route::get('/my-images', [ImageController::class, 'myImages'])->name('images.my');
-    Route::post('/images', [ImageController::class, 'store'])->name('images.store');
-    Route::delete('/images/{image}', [ImageController::class, 'destroy'])->name('images.destroy');
-	Route::patch('/images/{image}/visibility', [ImageController::class, 'toggleVisibility'])->name('images.toggleVisibility');
+    Route::get('/my-media', [MediaController::class, 'myMedia'])->name('media.my');
+    Route::post('/media', [MediaController::class, 'store'])->name('media.store');
+    Route::delete('/media/{media}', [MediaController::class, 'destroy'])->name('media.destroy');
+	Route::patch('/media/{media}/visibility', [MediaController::class, 'toggleVisibility'])->name('media.toggleVisibility');
 
     // Admin Routes
     Route::middleware('admin')->prefix('admin')->name('admin.')->group(function () {
@@ -53,21 +49,13 @@ Route::middleware('auth')->group(function () {
     });
 });
 
-Route::get('/i/{image:slug}', [ImageController::class, 'show'])->name('img.show.slug');
-Route::get('/v/{image:slug}', [ImageController::class, 'show'])->name('vid.show.slug');
+Route::get('/i/{media:slug}', [MediaController::class, 'show'])->name('img.show.slug');
+Route::get('/v/{media:slug}', [MediaController::class, 'show'])->name('vid.show.slug');
 Route::get('/l/{link:slug}', [LinkController::class, 'show'])->name('links.show');
 
+Route::get('/media/{media}', [MediaController::class, 'show'])->name('media.show');
 
-Route::get('/madia/{image}', [ImageController::class, 'show'])->name('images.show');
-Route::get('/images/{image}', [ImageController::class, 'show']);
-Route::get('/img/{image}', [ImageController::class, 'show'])->name('img.show');
-Route::get('/vid/{image}', [ImageController::class, 'show'])->name('vid.show');
-Route::get('/vdo/{image}', [ImageController::class, 'show']);
-Route::get('/image/{image}', [ImageController::class, 'show']);
-Route::get('/video/{image}', [ImageController::class, 'show']);
-Route::get('/media/{image}', [ImageController::class, 'show']);
-
-Route::get('/recent-uploads', [ImageController::class, 'recentUploads'])->name('images.recent');
+Route::get('/recent-uploads', [MediaController::class, 'recentUploads'])->name('media.recent');
 
 Route::get('/legal/{section}', [LegalController::class, 'show'])->name('legal.show');
 

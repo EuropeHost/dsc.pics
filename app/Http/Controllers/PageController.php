@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Image;
+use App\Models\Media;
 use App\Models\User;
 use App\Models\Link;
 use App\Models\LinkView;
@@ -13,9 +13,9 @@ class PageController extends Controller
 {
     public function home()
     {
-        $totalUsed = Image::sum('size');
+        $totalUsed = Media::sum('size');
         $totalUsers = User::count();
-        $totalImages = Image::count();
+        $totalMedia = Media::count();
         $totalLinks = Link::count();
         $avgPerUser = $totalUsers > 0 ? $totalUsed / $totalUsers : 0;
 
@@ -26,16 +26,16 @@ class PageController extends Controller
         $last30Days = Carbon::now()->subDays(30);
         $last24Hours = Carbon::now()->subHours(24);
 
-        $imagesLast30Days = Image::where('created_at', '>=', $last30Days)->count();
-        $imagesLast24Hours = Image::where('created_at', '>=', $last24Hours)->count();
+        $mediaLast30Days = Media::where('created_at', '>=', $last30Days)->count();
+        $mediaLast24Hours = Media::where('created_at', '>=', $last24Hours)->count();
 
         $linkViewsLast30Days = LinkView::where('created_at', '>=', $last30Days)->count();
         $linkViewsLast24Hours = LinkView::where('created_at', '>=', $last24Hours)->count();
 
 
         // --- Top Users by Storage ---
-        $topStorageUsers = User::withSum('images', 'size')
-            ->orderByDesc('images_sum_size')
+        $topStorageUsers = User::withSum('media', 'size')
+            ->orderByDesc('media_sum_size')
             ->take(3)
             ->get()
             ->map(function ($user) {
@@ -46,13 +46,13 @@ class PageController extends Controller
                 return (object) [
                     'name' => $user->name,
                     'avatar_url' => $avatarUrl,
-                    'storage_used_mb' => number_format($user->images_sum_size / 1048576, 2),
+                    'storage_used_mb' => number_format($user->media_sum_size / 1048576, 2),
                 ];
             });
 
-        // --- Top Users by Image Count ---
-        $topImageUsers = User::withCount('images')
-            ->orderByDesc('images_count')
+        // --- Top Users by Media Count ---
+        $topMediaUsers = User::withCount('media')
+            ->orderByDesc('media_count')
             ->take(4)
             ->get()
             ->map(function ($user) {
@@ -63,7 +63,7 @@ class PageController extends Controller
                 return (object) [
                     'name' => $user->name,
                     'avatar_url' => $avatarUrl,
-                    'image_count' => $user->images_count,
+                    'media_count' => $user->media_count,
                 ];
             });
 
@@ -88,16 +88,16 @@ class PageController extends Controller
         return view('pages.home', [
             'totalUsed' => $totalUsed,
             'totalUsers' => $totalUsers,
-            'totalImages' => $totalImages,
+            'totalMedia' => $totalMedia,
             'totalLinks' => $totalLinks,
             'avgPerUser' => $avgPerUser,
             'totalLimit' => $totalLimit,
             'storagePercentage' => $storagePercentage,
             'topStorageUsers' => $topStorageUsers,
-            'topImageUsers' => $topImageUsers,
+            'topMediaUsers' => $topMediaUsers,
             'topLinkUsers' => $topLinkUsers,
-            'imagesLast30Days' => $imagesLast30Days,
-            'imagesLast24Hours' => $imagesLast24Hours,
+            'mediaLast30Days' => $mediaLast30Days,
+            'mediaLast24Hours' => $mediaLast24Hours,
             'linkViewsLast30Days' => $linkViewsLast30Days,
             'linkViewsLast24Hours' => $linkViewsLast24Hours,
         ]);
@@ -111,9 +111,9 @@ class PageController extends Controller
 
         $totalUserLinkViews = $userLinksWithViewsCount->sum('views_count');
 
-        $latestImages = $user->images()->latest()->take(3)->get();
+        $latestMedia = $user->media()->latest()->take(3)->get();
         $latestLinks = $userLinksWithViewsCount->sortByDesc('created_at')->take(5);
         
-        return view('pages.dashboard', compact(['latestImages', 'latestLinks', 'totalUserLinkViews']));
+        return view('pages.dashboard', compact(['latestMedia', 'latestLinks', 'totalUserLinkViews']));
     }
 }

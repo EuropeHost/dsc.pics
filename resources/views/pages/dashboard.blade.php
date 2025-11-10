@@ -15,8 +15,8 @@
     </div>
 
     <div class="bg-white shadow rounded p-6 mb-6">
-        <h2 class="text-lg font-semibold mb-4">{{ __('content.upload_image') }}</h2>
-        <form action="{{ route('images.store') }}" method="POST"
+        <h2 class="text-lg font-semibold mb-4">{{ __('content.upload_media') }}</h2>
+        <form action="{{ route('media.store') }}" method="POST"
             enctype="multipart/form-data">
             @csrf
             <div
@@ -74,39 +74,39 @@
         </form>
     </div>
 
-    @if ($latestImages->isNotEmpty())
+    @if ($latestMedia->isNotEmpty())
         <div class="mb-6">
             <h3 class="text-md font-semibold mb-2">{{ __('content.latest_uploads') }}</h3>
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-                @foreach ($latestImages as $image)
+                @foreach ($latestMedia as $media)
                     <div class="bg-white border-1 border-gray-200 rounded shadow p-4 relative overflow-hidden">
-                        @if (Str::startsWith($image->mime, 'video/'))
+                        @if (Str::startsWith($media->mime, 'video/'))
                             <video controls class="max-w-full max-h-48 h-auto rounded mb-2 mx-auto">
-                                <source src="{{ route('vid.show.slug', $image) }}" type="{{ $image->mime }}">
+                                <source src="{{ route('vid.show.slug', $media) }}" type="{{ $media->mime }}">
                                 {{ __('content.video_not_supported') }}
                             </video>
                         @else
-                            <img src="{{ route('img.show.slug', $image) }}"
+                            <img src="{{ route('img.show.slug', $media) }}"
                                 class="max-w-full max-h-48 h-auto object-contain rounded mb-2 mx-auto"
-                                alt="{{ $image->original_name }}">
+                                alt="{{ $media->original_name }}">
                         @endif
 
                         <div class="flex space-x-2 text-xs justify-center flex-wrap">
-                            <span class="text-gray-600">{{ $image->created_at->diffForHumans() }}</span>
+                            <span class="text-gray-600">{{ $media->created_at->diffForHumans() }}</span>
                             <span class="text-gray-600">|</span>
-                            <span class="text-gray-600">{{ number_format($image->size / 1024 / 1024, 2) }} MB</span>
+                            <span class="text-gray-600">{{ number_format($media->size / 1024 / 1024, 2) }} MB</span>
                             <span class="text-gray-600">|</span>
-                            <span class="text-gray-600">{{ $image->is_public ? __('content.public') : __('content.private') }}</span>
+                            <span class="text-gray-600">{{ $media->is_public ? __('content.public') : __('content.private') }}</span>
                         </div>
                     </div>
                 @endforeach
             </div>
             <div class="flex space-x-4 text-sm mt-4 justify-center">
-                <a href="{{ route('images.my') }}" class="text-sky-600 hover:underline">
-                    {{ __('content.see_my') }}
+                <a href="{{ route('media.my') }}" class="text-sky-600 hover:underline">
+                    {{ __('content.see_my_media') }}
                 </a>
-                <a href="{{ route('images.recent') }}" class="text-sky-600 hover:underline">
-                    {{ __('content.see_recent') }}
+                <a href="{{ route('media.recent') }}" class="text-sky-600 hover:underline">
+                    {{ __('content.see_recent_media') }}
                 </a>
                 <a href="{{ route('links.my') }}" class="text-sky-600 hover:underline">
                     {{ __('links.my_short_links') }}
@@ -173,8 +173,8 @@
     <div class="bg-white shadow rounded p-6">
         <h3 class="text-lg font-semibold mb-4">{{ __('content.your_stats') }}</h3>
         <p class="text-gray-700 mb-2">
-            {{ __('content.total_images_uploaded') }}:
-            {{ auth()->user()->images()->count() }}
+            {{ __('content.total_media_uploaded') }}:
+            {{ auth()->user()->media()->count() }}
         </p>
         <p class="text-gray-700 mb-2">
             {{ __('content.total_links_shortened') }}:

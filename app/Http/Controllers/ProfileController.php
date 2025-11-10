@@ -20,10 +20,10 @@ class ProfileController extends Controller
     {
         $user = Auth::user();
 
-        $user->loadCount('images')->loadSum('images', 'size');
+        $user->loadCount('media')->loadSum('media', 'size');
 
-        $publicImagesCount = $user->images()->where('is_public', 1)->count();
-        $privateImagesCount = $user->images()->where('is_public', 0)->count();
+        $publicMediaCount = $user->media()->where('is_public', 1)->count();
+        $privateMediaCount = $user->media()->where('is_public', 0)->count();
 
         // Determine avatar URL or use a fallback
         $avatarUrl = asset('img/default-avatar.png');
@@ -32,7 +32,7 @@ class ProfileController extends Controller
         }
         $user->avatar_url = $avatarUrl;
 
-        return view('profile.show', compact('user', 'publicImagesCount', 'privateImagesCount'));
+        return view('profile.show', compact('user', 'publicMediaCount', 'privateMediaCount'));
     }
 
     public function destroy(Request $request)
@@ -41,10 +41,10 @@ class ProfileController extends Controller
 
         Auth::logout();
 
-        if ($user->images) {
-            foreach ($user->images as $image) {
-                if (Storage::disk('public')->exists($image->filename)) {
-                    Storage::disk('public')->delete($image->filename);
+        if ($user->media) {
+            foreach ($user->media as $media) {
+                if (Storage::disk('public')->exists($media->filename)) {
+                    Storage::disk('public')->delete($media->filename);
                 }
             }
         }

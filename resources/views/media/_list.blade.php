@@ -1,33 +1,33 @@
-@if($images->count())
+@if($mediaItems->count())
     <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
-        @foreach($images as $image)
+        @foreach($mediaItems as $media)
 			@php
-    			$viewRoute = Str::startsWith($image->mime, 'video/')
-    			    ? route('vid.show.slug', $image)
-    			    : route('img.show.slug', $image)
+    			$viewRoute = Str::startsWith($media->mime, 'video/')
+    			    ? route('vid.show.slug', $media)
+    			    : route('img.show.slug', $media)
 			@endphp
 
-            <div x-data="{ showCopyModal: false, showDeleteModal: false, isOwner: {{ auth()->id() === $image->user_id ? 'true' : 'false' }} }"
+            <div x-data="{ showCopyModal: false, showDeleteModal: false, isOwner: {{ auth()->id() === $media->user_id ? 'true' : 'false' }} }"
                  class="group relative border-0 rounded-lg shadow-sm bg-white overflow-hidden flex flex-col justify-between transition-all duration-200 hover:shadow-md">
 
                 <div class="relative w-full aspect-video flex items-center justify-center bg-gray-100 rounded-t-lg">
-                    @if(Str::startsWith($image->mime, 'video/'))
+                    @if(Str::startsWith($media->mime, 'video/'))
                         <video controls class="absolute inset-0 w-full h-full object-contain rounded-t-lg">
-                            <source src="{{ $viewRoute }}" type="{{ $image->mime }}">
+                            <source src="{{ $viewRoute }}" type="{{ $media->mime }}">
                             {{ __('content.video_not_supported') }}
                         </video>
                         {{-- Play icon overlay REMOVED --}}
                     @else
                         <img src="{{ $viewRoute }}"
-                             alt="{{ $image->original_name }}"
+                             alt="{{ $media->original_name }}"
                              class="absolute inset-0 w-full h-full object-contain rounded-t-lg">
                     @endif
                 </div>
 
                 <div class="p-3 flex flex-col flex-grow">
-                    {{-- Image Name (truncated with full name on hover) --}}
-                    <div class="text-sm font-medium text-gray-800 truncate mb-2" title="{{ $image->original_name }}">
-                        {{ $image->original_name }}
+                    {{-- Media Name (truncated with full name on hover) --}}
+                    <div class="text-sm font-medium text-gray-800 truncate mb-2" title="{{ $media->original_name }}">
+                        {{ $media->original_name }}
                     </div>
 
                     {{-- Actions Block --}}
@@ -49,7 +49,7 @@
                             <i class="bi bi-clipboard mr-1"></i> {{ __('content.copy_link') }}
                         </button>
 
-                        @if(auth()->id() === $image->user_id) {{-- Only show if authenticated user is owner --}}
+                        @if(auth()->id() === $media->user_id) {{-- Only show if authenticated user is owner --}}
                             {{-- Delete Button --}}
                             <button
                                 @click="showDeleteModal = true"
@@ -59,13 +59,13 @@
                             </button>
 
                             {{-- Visibility Select --}}
-                            <form method="POST" action="{{ route('images.toggleVisibility', $image) }}" class="col-span-1">
+                            <form method="POST" action="{{ route('media.toggleVisibility', $media) }}" class="col-span-1">
                                 @csrf
                                 @method('PATCH')
                                 <select name="is_public" onchange="this.form.submit()"
                                         class="w-full text-sm border-gray-300 rounded-md bg-gray-100 text-gray-700 hover:bg-gray-200 focus:ring-sky-500 focus:border-sky-500 p-2 pr-8 transition">
-                                    <option value="0" {{ !$image->is_public ? 'selected' : '' }}>{{ __('content.private') }}</option>
-                                    <option value="1" {{ $image->is_public ? 'selected' : '' }}>{{ __('content.public') }}</option>
+                                    <option value="0" {{ !$media->is_public ? 'selected' : '' }}>{{ __('content.private') }}</option>
+                                    <option value="1" {{ $media->is_public ? 'selected' : '' }}>{{ __('content.public') }}</option>
                                 </select>
                             </form>
                         @endif
@@ -102,9 +102,9 @@
                      class="fixed inset-0 flex items-center justify-center bg-black bg-opacity-60 z-50 p-4"
                      @click.away="showDeleteModal = false">
                     <div class="bg-white rounded-xl shadow-2xl max-w-sm w-full p-8">
-                        <h3 class="text-xl font-bold text-gray-800 mb-4">{{ __('content.delete_question') }}</h3>
-                        <p class="mb-6 text-gray-600 truncate text-base" title="{{ $image->original_name }}">
-                            {{ $image->original_name }}
+                        <h3 class="text-xl font-bold text-gray-800 mb-4">{{ __('content.delete_question_media') }}</h3>
+                        <p class="mb-6 text-gray-600 truncate text-base" title="{{ $media->original_name }}">
+                            {{ $media->original_name }}
                         </p>
 
                         <div class="flex justify-end space-x-3 mt-6">
@@ -113,7 +113,7 @@
                                 {{ __('content.cancel') }}
                             </button>
 
-                            <form method="POST" action="{{ route('images.destroy', $image) }}">
+                            <form method="POST" action="{{ route('media.destroy', $media) }}">
                                 @csrf
                                 @method('DELETE')
                                 <button type="submit"
@@ -129,8 +129,8 @@
     </div>
 
     <div class="mt-8 flex justify-center">
-        {{ $images->links('components.custom-pagination') }}
+        {{ $mediaItems->links('components.custom-pagination') }}
     </div>
 @else
-    <p class="text-gray-500 text-center py-8">{{ __('content.no_images_yet') }}</p>
+    <p class="text-gray-500 text-center py-8">{{ __('content.no_media_yet') }}</p>
 @endif

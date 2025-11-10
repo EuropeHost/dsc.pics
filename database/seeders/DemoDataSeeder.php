@@ -2,7 +2,7 @@
 
 namespace Database\Seeders;
 
-use App\Models\Image;
+use App\Models\Media;
 use App\Models\Link;
 use App\Models\LinkView;
 use App\Models\User;
@@ -25,8 +25,8 @@ class DemoDataSeeder extends Seeder
 
         // Create normal users
         User::factory(10)->create()->each(function ($user) {
-            // Create images for each user
-            Image::factory(rand(5, 20))->create([
+            // Create media for each user
+            Media::factory(rand(5, 20))->create([
                 'user_id' => $user->id,
             ]);
 

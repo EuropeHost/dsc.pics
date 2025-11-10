@@ -4,7 +4,7 @@ namespace App\Models;
 
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
-use App\Models\Image;
+use App\Models\Media;
 use App\Models\Link;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Support\Str;
@@ -38,9 +38,9 @@ class User extends Authenticatable
 	    });
 	}
 	
-	public function images()
+	public function media()
 	{
-	    return $this->hasMany(Image::class);
+	    return $this->hasMany(Media::class);
 	}
 	
 	public function links()
@@ -50,7 +50,7 @@ class User extends Authenticatable
 	
 	public function getStorageUsedAttribute()
 	{
-	    return $this->images()->sum('size');
+	    return $this->media()->sum('size');
 	}
 	
 	public function getStorageUsedMBAttribute()

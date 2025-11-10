@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\User;
-use App\Models\Image;
+use App\Models\Media;
 use App\Models\Link;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Redirect;
@@ -21,8 +21,8 @@ class AdminController extends Controller
     public function index()
     {
         $totalUsers = User::count();
-        $totalImages = Image::count();
-        $totalStorageUsedBytes = Image::sum('size');
+        $totalMedia = Media::count();
+        $totalStorageUsedBytes = Media::sum('size');
         $totalStorageUsedMB = $totalStorageUsedBytes / 1024 / 1024;
         $totalLinks = Link::count();
 
@@ -30,8 +30,8 @@ class AdminController extends Controller
         $systemStoragePercentage = ($systemStorageLimitBytes > 0) ? ($totalStorageUsedBytes / $systemStorageLimitBytes) * 100 : 0;
         $systemStoragePercentage = min(100, $systemStoragePercentage);
 
-        $users = User::withCount('images')
-                     ->withSum('images', 'size')
+        $users = User::withCount('media')
+                     ->withSum('media', 'size')
                      ->withCount('links')
                      ->orderBy('created_at', 'desc')
                      ->paginate(15);
@@ -47,7 +47,7 @@ class AdminController extends Controller
 
         return view('admin.dashboard', compact(
             'totalUsers',
-            'totalImages',
+            'totalMedia',
             'totalStorageUsedMB',
             'systemStorageLimitBytes',
             'systemStoragePercentage',
@@ -58,9 +58,9 @@ class AdminController extends Controller
 
 	public function showUser(User $user)
 	{
-	    $user->loadCount(['images', 'links'])->loadSum('images', 'size');
+	    $user->loadCount(['media', 'links'])->loadSum('media', 'size');
 	
-	    $userImages = $user->images()->latest()->paginate(8, ['*'], 'images_page')->withQueryString();
+	    $userMedia = $user->media()->latest()->paginate(8, ['*'], 'media_page')->withQueryString();
 	
 	    $userLinks = $user->links()->withCount('views')->latest()->paginate(10, ['*'], 'links_page')->withQueryString();
 	
@@ -70,7 +70,7 @@ class AdminController extends Controller
 	
 	    $totalUserLinkViews = $user->links()->withCount('views')->get()->sum('views_count');
 	
-	    return view('admin.user_insights', compact('user', 'userImages', 'userLinks', 'totalUserLinkViews'));
+	    return view('admin.user_insights', compact('user', 'userMedia', 'userLinks', 'totalUserLinkViews'));
 	}
 
     public function updateRole(Request $request, User $user)
@@ -95,11 +95,11 @@ class AdminController extends Controller
             return Redirect::back()->with('error', __('admin.cannot_delete_own_account'));
         }
 
-		foreach ($user->images as $image) {
-		    if (Storage::disk('public')->exists($image->filename)) {
-		        Storage::disk('public')->delete($image->filename);
+		foreach ($user->media as $media) {
+		    if (Storage::disk('public')->exists($media->filename)) {
+		        Storage::disk('public')->delete($media->filename);
 		    }
-		    $image->delete();
+		    $media->delete();
 		}
 		
         $user->links()->delete();

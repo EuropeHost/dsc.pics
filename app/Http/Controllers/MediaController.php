@@ -4,21 +4,21 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
-use App\Models\Image;
+use App\Models\Media;
 use Illuminate\Support\Str;
 
-class ImageController extends Controller
+class MediaController extends Controller
 {
-    public function myImages()
+    public function myMedia()
     {
-        $images = auth()->user()->images()->latest()->paginate(12);
-        return view('images.my-images', compact('images'));
+        $mediaItems = auth()->user()->media()->latest()->paginate(12);
+        return view('media.my-media', compact('mediaItems'));
     }
 
     public function recentUploads()
     {
-        $images = Image::where('is_public', true)->latest()->paginate(12);
-        return view('images.recent-uploads', compact('images'));
+        $mediaItems = Media::where('is_public', true)->latest()->paginate(12);
+        return view('media.recent-uploads', compact('mediaItems'));
     }
 
     public function store(Request $request)
@@ -31,7 +31,7 @@ class ImageController extends Controller
         $user = auth()->user();
 
         // Check storage limit (in bytes)
-        $currentStorageUsed = $user->images()->sum('size');
+        $currentStorageUsed = $user->media()->sum('size');
         $fileSize = $request->file('file')->getSize();
         $storageLimitBytes = $user->storage_limit_mb * 1024 * 1024;
 
@@ -49,10 +49,10 @@ class ImageController extends Controller
             return back()->with('error', __('Only images or videos are allowed.'));
         }
 
-        $filePath = $file->store('images', 'public');
+        $filePath = $file->store('media', 'public');
         $fileName = basename($filePath);
 
-        $user->images()->create([
+        $user->media()->create([
             'type' => $isVideo ? 'video' : 'image',
             'filename' => $fileName,
             'original_name' => $file->getClientOriginalName(),
@@ -62,47 +62,47 @@ class ImageController extends Controller
             'slug' => Str::random(7),
         ]);
 
-        return back()->with('success', $isVideo ? __('content.video_uploaded') : __('content.image_uploaded'));
+        return back()->with('success', $isVideo ? __('content.video_uploaded') : __('content.media_uploaded'));
     }
 
-    public function show(Image $image)
+    public function show(Media $media)
     {
         /*
-		if (!$image->is_public && (auth()->guest() || auth()->id() !== $image->user_id)) {
+		if (!$media->is_public && (auth()->guest() || auth()->id() !== $media->user_id)) {
             abort(403);
         }
-		*/ //Just if you want the plattform as Users "Private Image Cloud"
+		*/ //Just if you want the plattform as Users "Private Media Cloud"
 
-        $path = Storage::disk('public')->path('images/' . $image->filename);
+        $path = Storage::disk('public')->path('media/' . $media->filename);
 
-        if (!Storage::disk('public')->exists('images/' . $image->filename)) {
+        if (!Storage::disk('public')->exists('media/' . $media->filename)) {
             abort(404);
         }
 
         return response()->file($path, [
-            'Content-Type' => $image->mime,
-            'Content-Disposition' => 'inline; filename="' . $image->original_name . '"',
+            'Content-Type' => $media->mime,
+            'Content-Disposition' => 'inline; filename="' . $media->original_name . '"',
         ]);
     }
 
-    public function destroy(Image $image)
+    public function destroy(Media $media)
     {
-        if ($image->user_id !== auth()->id()) {
+        if ($media->user_id !== auth()->id()) {
             abort(403);
         }
 
-        if (Storage::disk('public')->exists('images/' . $image->filename)) {
-            Storage::disk('public')->delete('images/' . $image->filename);
+        if (Storage::disk('public')->exists('media/' . $media->filename)) {
+            Storage::disk('public')->delete('media/' . $media->filename);
         }
 
-        $image->delete();
+        $media->delete();
 
-        return back()->with('success', __('content.image_deleted'));
+        return back()->with('success', __('content.media_deleted'));
     }
 
-    public function toggleVisibility(Request $request, Image $image)
+    public function toggleVisibility(Request $request, Media $media)
     {
-        if ($image->user_id !== auth()->id()) {
+        if ($media->user_id !== auth()->id()) {
             abort(403);
         }
 
@@ -110,8 +110,8 @@ class ImageController extends Controller
             'is_public' => 'required|boolean',
         ]);
 
-        $image->is_public = $request->boolean('is_public');
-        $image->save();
+        $media->is_public = $request->boolean('is_public');
+        $media->save();
 
         return back()->with('success', __('content.visibility_updated'));
     }
