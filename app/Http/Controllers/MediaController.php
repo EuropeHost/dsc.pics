@@ -5,7 +5,9 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use App\Models\Media;
+use App\Models\MediaView;
 use Illuminate\Support\Str;
+use Illuminate\Support\Facades\Auth;
 
 class MediaController extends Controller
 {
@@ -67,6 +69,13 @@ class MediaController extends Controller
 
     public function show(Media $media)
     {
+        MediaView::create([
+            'media_id' => $media->id,
+            'ip_address' => request()->ip(),
+            'user_agent' => request()->header('User-Agent'),
+            'viewer_user_id' => Auth::id(),
+        ]);
+        
         /*
 		if (!$media->is_public && (auth()->guest() || auth()->id() !== $media->user_id)) {
             abort(403);
