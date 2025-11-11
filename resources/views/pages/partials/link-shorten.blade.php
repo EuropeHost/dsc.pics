@@ -13,10 +13,8 @@
                     {{ __('links.original_url') }}
                 </label>
                 <input
-                    type="url"
                     name="original_url"
                     id="original_url"
-                    required
                     placeholder="https://example.com/your-long-url-here"
                     class="w-full border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-800 dark:text-gray-100 rounded-md shadow-sm focus:border-sky-500 focus:ring focus:ring-sky-500 focus:ring-opacity-50 px-4 py-2"
                 />

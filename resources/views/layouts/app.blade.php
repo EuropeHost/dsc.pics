@@ -30,7 +30,7 @@
     <body class="min-h-screen flex flex-col bg-gray-100 text-gray-900 dark:bg-gray-900 dark:text-gray-100">
         <div id="preloader"><div class="spinner"></div></div>
 
-        @include('components.announcement')
+        <!--@include('components.announcement')-->
         @include('components.navbar')
 
         <main class="flex-grow">
