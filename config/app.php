@@ -74,6 +74,28 @@ return [
 
     /*
     |--------------------------------------------------------------------------
+    | Application Locales
+    |--------------------------------------------------------------------------
+    |
+    | This array defines the available locales for your application, mapping
+    | their shortcodes to human-readable names. This is used for language
+    | switching and displaying language options to users.
+    |
+    */
+    'locales' => [
+        'en' => 'English',
+        'de' => 'Deutsch',
+        'fr' => 'Français',
+        // Add more locales as needed
+    ],
+
+    /*
+    |--------------------------------------------------------------------------
+    | Application Fallback Locale
+    |--------------------------------------------------------------------------
+
+    /*
+    |--------------------------------------------------------------------------
     | Application Locale Configuration
     |--------------------------------------------------------------------------
     |

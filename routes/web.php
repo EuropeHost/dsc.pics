@@ -6,9 +6,10 @@ use App\Http\Controllers\PageController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\LinkController;
+use Illuminate\Http\Request; // Added this line
 
 Route::post('/locale', function (Request $request) {
-    session(['locale' => $request->locale]);
+    session(['locale' => $request->input('locale')]); // Modified this line
     return back();
 })->name('set-locale');
 
