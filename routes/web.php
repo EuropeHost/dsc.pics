@@ -13,7 +13,8 @@ Route::post('/locale', function (Request $request) {
     return back();
 })->name('set-locale');
 
-Route::get('/', [PageController::class, 'home'])->name('home');
+//Route::get('/', [PageController::class, 'home'])->name('home');
+Route::get('/', [PageController::class, 'lander'])->name('home');
 
 Route::get('/auth/redirect', [AuthController::class, 'redirectToDiscord'])->name('login');
 Route::get('/auth/login', [AuthController::class, 'showLogin'])->name('login.view');

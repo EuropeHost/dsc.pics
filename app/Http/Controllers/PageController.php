@@ -133,4 +133,9 @@ class PageController extends Controller
             'content' => $htmlContent,
         ]);
     }
+
+    public function lander()
+    {
+        return view('pages.lander');
+    }
 }
