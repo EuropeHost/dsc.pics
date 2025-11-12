@@ -3,14 +3,14 @@
 return [
     'lander' => [
         'hero' => [
-            'title' => 'Share Your Moments<br><span class="text-dscpics-500 dark:text-dscpics-400">Instantly</span>',
-            'subtitle' => 'Lightning-fast image hosting powered by Discord. Upload, share, and manage your media with ease.',
+            'title' => 'Fast & Secure<br>Discord Image Hosting',
+            'subtitle' => 'Share your images and links instantly with your Discord community',
             'login_button' => 'Login with Discord',
             'dashboard_button' => 'Go to Dashboard',
-            'fast_title' => 'Lightning Fast',
-            'fast_desc' => 'Upload and share your images in seconds with our optimized infrastructure.',
-            'discord_title' => 'Discord Integration',
-            'discord_desc' => 'Seamlessly integrated with Discord for effortless authentication and sharing.',
+            'feature_fast_title' => 'Lightning Fast',
+            'feature_fast_desc' => 'Upload and share in seconds with our optimized infrastructure',
+            'feature_secure_title' => 'Secure & Private',
+            'feature_secure_desc' => 'Your content is protected with enterprise-grade security',
         ],
     ],
 ];
