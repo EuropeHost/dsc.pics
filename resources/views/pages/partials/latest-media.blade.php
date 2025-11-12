@@ -44,19 +44,19 @@
         <div class="flex flex-wrap space-x-4 text-sm mt-6 justify-center">
             <a
                 href="{{ route('media.my') }}"
-                class="text-sky-600 hover:underline dark:text-sky-400"
+                class="text-dscpics-600 hover:underline dark:text-dscpics-400"
             >
                 {{ __('content.see_my_media') }}
             </a>
             <a
                 href="{{ route('media.recent') }}"
-                class="text-sky-600 hover:underline dark:text-sky-400"
+                class="text-dscpics-600 hover:underline dark:text-dscpics-400"
             >
                 {{ __('content.see_recent_media') }}
             </a>
             <a
                 href="{{ route('links.my') }}"
-                class="text-sky-600 hover:underline dark:text-sky-400"
+                class="text-dscpics-600 hover:underline dark:text-dscpics-400"
             >
                 {{ __('links.my_short_links') }}
             </a>

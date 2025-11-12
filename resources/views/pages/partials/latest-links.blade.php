@@ -40,7 +40,7 @@
                                 <a
                                     href="{{ route('links.show', $link->slug) }}"
                                     target="_blank"
-                                    class="text-sky-600 hover:underline dark:text-sky-400"
+                                    class="text-dscpics-600 hover:underline dark:text-dscpics-400"
                                 >
                                     {{ route('links.show', $link->slug) }}
                                 </a>

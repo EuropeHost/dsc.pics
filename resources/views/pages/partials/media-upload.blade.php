@@ -38,7 +38,7 @@
 
             <button
                 type="submit"
-                class="bg-sky-500 text-white px-4 py-2 rounded-lg hover:bg-sky-600 duration-255 transition text-sm flex-shrink-0"
+                class="bg-dscpics-500 text-white px-4 py-2 rounded-lg hover:bg-dscpics-600 duration-255 transition text-sm flex-shrink-0"
             >
                 <i class="bi bi-upload"></i> {{ __('content.upload') }}
             </button>

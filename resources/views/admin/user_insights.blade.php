@@ -21,7 +21,7 @@
             <img
                 src="{{ $user->avatar_url }}"
                 alt="{{ $user->name }}"
-                class="w-28 h-28 rounded-full object-cover border-4 border-sky-500 dark:border-sky-400 mr-6 mb-4 sm:mb-0 shadow-lg"
+                class="w-28 h-28 rounded-full object-cover border-4 border-dscpics-500 dark:border-dscpics-400 mr-6 mb-4 sm:mb-0 shadow-lg"
             />
             <div>
                 <h2 class="text-2xl font-semibold text-gray-900 dark:text-gray-100 mb-1">
@@ -41,7 +41,7 @@
                 </p>
                 <p class="text-md text-gray-600 dark:text-gray-400 capitalize">
                     {{ __('admin.role') }}:
-                    <span class="font-bold text-sky-700 dark:text-sky-400">{{ $user->role }}</span>
+                    <span class="font-bold text-dscpics-700 dark:text-dscpics-400">{{ $user->role }}</span>
                     @if (auth()->user()->id !== $user->id)
                         <button
                             @click="showRoleModal = true"
@@ -67,7 +67,7 @@
                 <p class="text-lg font-semibold text-gray-700 dark:text-gray-300">
                     {{ __('admin.media_uploaded') }}
                 </p>
-                <p class="text-3xl font-bold text-sky-600 dark:text-sky-400 mt-1">
+                <p class="text-3xl font-bold text-dscpics-600 dark:text-dscpics-400 mt-1">
                     {{ number_format($user->media_count) }}
                 </p>
             </div>
@@ -77,7 +77,7 @@
                 <p class="text-lg font-semibold text-gray-700 dark:text-gray-300">
                     {{ __('admin.storage_used') }}
                 </p>
-                <p class="text-3xl font-bold text-sky-600 dark:text-sky-400 mt-1">
+                <p class="text-3xl font-bold text-dscpics-600 dark:text-dscpics-400 mt-1">
                     {{ number_format($user->media_sum_size / 1024 / 1024, 2) }} MB
                 </p>
             </div>
@@ -87,7 +87,7 @@
                 <p class="text-lg font-semibold text-gray-700 dark:text-gray-300">
                     {{ __('admin.links_shortened') }}
                 </p>
-                <p class="text-3xl font-bold text-sky-600 dark:text-sky-400 mt-1">
+                <p class="text-3xl font-bold text-dscpics-600 dark:text-dscpics-400 mt-1">
                     {{ number_format($user->links_count) }}
                 </p>
             </div>
@@ -97,7 +97,7 @@
                 <p class="text-lg font-semibold text-gray-700 dark:text-gray-300">
                     {{ __('admin.link_views') }}
                 </p>
-                <p class="text-3xl font-bold text-sky-600 dark:text-sky-400 mt-1">
+                <p class="text-3xl font-bold text-dscpics-600 dark:text-dscpics-400 mt-1">
                     {{ number_format($totalUserLinkViews) }}
                 </p>
             </div>
@@ -222,7 +222,7 @@
                                     <a
                                         href="{{ route('links.show', $link->slug) }}"
                                         target="_blank"
-                                        class="text-sky-600 hover:underline dark:text-sky-400"
+                                        class="text-dscpics-600 hover:underline dark:text-dscpics-400"
                                     >
                                         {{ route('links.show', $link->slug) }}
                                     </a>
@@ -330,7 +330,7 @@
                             id="new_role"
                             name="role"
                             x-model="newRole"
-                            class="block w-full border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-800 dark:text-gray-100 rounded-md shadow-sm focus:border-sky-500 focus:ring focus:ring-sky-500 focus:ring-opacity-50 px-4 py-2"
+                            class="block w-full border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-800 dark:text-gray-100 rounded-md shadow-sm focus:border-dscpics-500 focus:ring focus:ring-dscpics-500 focus:ring-opacity-50 px-4 py-2"
                         >
                             <option value="user">{{ __('admin.role_user') }}</option>
                             <option value="admin">{{ __('admin.role_admin') }}</option>
@@ -347,7 +347,7 @@
                         </button>
                         <button
                             type="submit"
-                            class="px-5 py-2 bg-sky-600 dark:bg-sky-700 text-white rounded-lg hover:bg-sky-700 dark:hover:bg-sky-800 transition shadow-sm"
+                            class="px-5 py-2 bg-dscpics-600 dark:bg-dscpics-700 text-white rounded-lg hover:bg-dscpics-700 dark:hover:bg-dscpics-800 transition shadow-sm"
                         >
                             {{ __('admin.save_changes') }}
                         </button>

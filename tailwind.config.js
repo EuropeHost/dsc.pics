@@ -33,6 +33,9 @@ export default {
                     950: '#082F49',
                 },
             },
+            spacing: {
+                30: '7.5rem', // 120px
+            },
         },
     },
 

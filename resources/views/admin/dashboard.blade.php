@@ -10,7 +10,7 @@
             <p class="text-lg font-semibold text-gray-700 dark:text-gray-300">
                 {{ __('admin.total_users') }}
             </p>
-            <p class="text-4xl font-bold text-sky-600 dark:text-sky-400 mt-2">
+            <p class="text-4xl font-bold text-dscpics-600 dark:text-dscpics-400 mt-2">
                 {{ number_format($totalUsers) }}
             </p>
         </div>
@@ -19,7 +19,7 @@
             <p class="text-lg font-semibold text-gray-700 dark:text-gray-300">
                 {{ __('admin.total_media') }}
             </p>
-            <p class="text-4xl font-bold text-sky-600 dark:text-sky-400 mt-2">
+            <p class="text-4xl font-bold text-dscpics-600 dark:text-dscpics-400 mt-2">
                 {{ number_format($totalMedia) }}
             </p>
         </div>
@@ -28,7 +28,7 @@
             <p class="text-lg font-semibold text-gray-700 dark:text-gray-300">
                 {{ __('admin.total_links') }}
             </p>
-            <p class="text-4xl font-bold text-sky-600 dark:text-sky-400 mt-2">
+            <p class="text-4xl font-bold text-dscpics-600 dark:text-dscpics-400 mt-2">
                 {{ number_format($totalLinks) }}
             </p>
         </div>
@@ -37,11 +37,11 @@
             <p class="text-lg font-semibold text-gray-700 dark:text-gray-300">
                 {{ __('admin.total_storage_used') }}
             </p>
-            <p class="text-4xl font-bold text-sky-600 dark:text-sky-400 mt-2">
+            <p class="text-4xl font-bold text-dscpics-600 dark:text-dscpics-400 mt-2">
                 {{ number_format($totalStorageUsedMB, 2) }} MB
             </p>
             <!--div class="w-full bg-gray-200 rounded-full h-3 mt-4">
-                <div class="bg-sky-600 h-3 rounded-full" style="width: {{ number_format($systemStoragePercentage, 1) }}%"></div>
+                <div class="bg-dscpics-600 h-3 rounded-full" style="width: {{ number_format($systemStoragePercentage, 1) }}%"></div>
             </div>
             <p class="text-sm text-gray-600 mt-1">{{ number_format($systemStoragePercentage, 1) }}% {{ __('admin.of_total_limit') }}</p-->
         </div>
@@ -115,13 +115,13 @@
                 x-model="search"
                 @input="applyFilters"
                 placeholder="{{ __('admin.search_users') }}"
-                class="flex-grow border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-800 dark:text-gray-100 rounded-md shadow-sm focus:border-sky-500 focus:ring focus:ring-sky-500 focus:ring-opacity-50 px-4 py-2"
+                class="flex-grow border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-800 dark:text-gray-100 rounded-md shadow-sm focus:border-dscpics-500 focus:ring focus:ring-dscpics-500 focus:ring-opacity-50 px-4 py-2"
             />
 
             <select
                 x-model="roleFilter"
                 @change="applyFilters"
-                class="border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-800 dark:text-gray-100 rounded-md shadow-sm focus:border-sky-500 focus:ring focus:ring-sky-500 focus:ring-opacity-50 px-4 py-2"
+                class="border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-800 dark:text-gray-100 rounded-md shadow-sm focus:border-dscpics-500 focus:ring focus:ring-dscpics-500 focus:ring-opacity-50 px-4 py-2"
             >
                 <option value="all">{{ __('admin.filter_by_role_all') }}</option>
                 <option value="user">{{ __('admin.role_user') }}</option>
@@ -131,7 +131,7 @@
             <select
                 x-model="sortBy"
                 @change="applyFilters"
-                class="border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-800 dark:text-gray-100 rounded-md shadow-sm focus:border-sky-500 focus:ring focus:ring-sky-500 focus:ring-opacity-50 px-4 py-2"
+                class="border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-800 dark:text-gray-100 rounded-md shadow-sm focus:border-dscpics-500 focus:ring focus:ring-dscpics-500 focus:ring-opacity-50 px-4 py-2"
             >
                 <option value="created_at">{{ __('admin.sort_by_created') }}</option>
                 <option value="name">{{ __('admin.sort_by_name') }}</option>
@@ -142,7 +142,7 @@
 
             <button
                 @click="sortDirection = sortDirection === 'asc' ? 'desc' : 'asc'; applyFilters()"
-                class="border-gray-300 dark:border-gray-600 rounded-md shadow-sm bg-gray-100 dark:bg-gray-700 text-gray-800 dark:text-gray-100 hover:bg-gray-200 dark:hover:bg-gray-600 focus:border-sky-500 focus:ring focus:ring-sky-500 focus:ring-opacity-50 px-4 py-2 transition"
+                class="border-gray-300 dark:border-gray-600 rounded-md shadow-sm bg-gray-100 dark:bg-gray-700 text-gray-800 dark:text-gray-100 hover:bg-gray-200 dark:hover:bg-gray-600 focus:border-dscpics-500 focus:ring focus:ring-dscpics-500 focus:ring-opacity-50 px-4 py-2 transition"
             >
                 <i
                     :class="sortDirection === 'asc' ? 'bi bi-sort-numeric-down' : 'bi bi-sort-numeric-up'"
@@ -212,14 +212,14 @@
                                 >
                                     <div class="flex-shrink-0 h-10 w-10">
                                         <img
-                                            class="h-10 w-10 rounded-full object-cover group-hover:ring-2 group-hover:ring-sky-500 transition"
+                                            class="h-10 w-10 rounded-full object-cover group-hover:ring-2 group-hover:ring-dscpics-500 transition"
                                             :src="user.avatar_url || '{{ asset('img/default-avatar.png') }}'"
                                             :alt="user.name"
                                         />
                                     </div>
                                     <div class="ml-4">
                                         <div
-                                            class="text-sm font-medium text-gray-900 dark:text-gray-100 group-hover:text-sky-600 dark:group-hover:text-sky-400 transition"
+                                            class="text-sm font-medium text-gray-900 dark:text-gray-100 group-hover:text-dscpics-600 dark:group-hover:text-dscpics-400 transition"
                                             x-text="user.name"
                                         ></div>
                                         <div
@@ -257,7 +257,7 @@
                             >
                                 <a
                                     :href="'{{ route('admin.users.show', ':userId') }}'.replace(':userId', user.id)"
-                                    class="text-sky-600 hover:text-sky-900 dark:text-sky-400 dark:hover:text-sky-200"
+                                    class="text-dscpics-600 hover:text-dscpics-900 dark:text-dscpics-400 dark:hover:text-dscpics-200"
                                 >
                                     {{ __('admin.view_details') }}
                                 </a>
