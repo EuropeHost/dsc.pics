@@ -53,5 +53,35 @@ return [
                 'description' => 'Track views and engagement on your shared content',
             ],
         ],
+        'faq' => [
+            'title' => 'Frequently Asked Questions',
+            'subtitle' => 'Everything you need to know about our platform',
+            'questions' => [
+                [
+                    'question' => 'How much storage do I get?',
+                    'answer' => 'Each user gets ' . env('USER_STORAGE_LIMIT', 100) . ' MB of free storage to host their media files. This is perfect for sharing screenshots, images, and other content with your Discord community.',
+                ],
+                [
+                    'question' => 'Is it really free?',
+                    'answer' => 'Yes! Our platform is completely free to use with no hidden fees or subscriptions. We believe in providing quality service without any cost barriers.',
+                ],
+                [
+                    'question' => 'What file types are supported?',
+                    'answer' => 'We support all common image formats including PNG, JPG, GIF, and WebP. Video files and other media types are also supported up to your storage limit.',
+                ],
+                [
+                    'question' => 'How do I get started?',
+                    'answer' => 'Simply click the "Login with Discord" button and authorize our application. Once logged in, you can immediately start uploading and sharing your content.',
+                ],
+                [
+                    'question' => 'Are my files private?',
+                    'answer' => 'By default, your Media are set to Private, but you can choose to show it in "recent Uploads". Your files are only accessible via the unique links you share. We take privacy seriously and implement industry-standard security measures to protect your content.',
+                ],
+                [
+                    'question' => 'Can I delete my files?',
+                    'answer' => 'Yes! You have full control over your content. You can delete any file at any time from your dashboard, and it will be permanently removed from our servers.',
+                ],
+            ],
+        ],
     ],
 ];
