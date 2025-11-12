@@ -6,11 +6,11 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Str;
 
-class LinkView extends Model
+class MediaView extends Model
 {
     use HasFactory;
 
-    protected $table = 'link_views';
+    protected $table = 'media_views';
 
     protected $fillable = [
         'media_id', 'ip_address', 'user_agent', 'viewer_user_id'

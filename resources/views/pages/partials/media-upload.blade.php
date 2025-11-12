@@ -1,5 +1,7 @@
 <div class="bg-white dark:bg-gray-800 shadow-md rounded-lg p-6 mb-6">
-    <h2 class="text-lg font-semibold text-gray-800 dark:text-gray-100 mb-4">
+    <h2
+        class="text-lg font-semibold text-gray-800 dark:text-gray-100 mb-4"
+    >
         {{ __('content.upload_media') }}
     </h2>
     <form
@@ -30,7 +32,7 @@
 
             <select
                 name="is_public"
-                class="border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-700 dark:text-gray-200 hover:border-gray-400 dark:hover:border-gray-500 duration-255 rounded-lg px-3 py-2 text-sm flex-shrink-0"
+                class="block w-full md:w-auto border-gray-300 dark:border-gray-700 dark:bg-gray-900 dark:text-gray-300 focus:border-dscpics-500 dark:focus:border-dscpics-600 focus:ring-dscpics-500 dark:focus:ring-dscpics-600 rounded-md shadow-sm text-sm"
             >
                 <option value="0">{{ __('content.private') }}</option>
                 <option value="1">{{ __('content.public') }}</option>
