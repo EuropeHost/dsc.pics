@@ -84,4 +84,42 @@ return [
             ],
         ],
     ],
+
+
+
+    'errors' => [
+        'go_home' => 'Go Home',
+        '401' => [
+            'title' => 'Unauthorized',
+            'subtitle' => 'You need to log in to access this page.',
+        ],
+        '403' => [
+            'title' => 'Access Denied',
+            'subtitle' => 'You do not have permission to access this resource.',
+        ],
+        '404' => [
+            'title' => 'Page Not Found',
+            'subtitle' => 'The page you are looking for does not exist.',
+        ],
+        '405' => [
+            'title' => 'Method Not Allowed',
+            'subtitle' => 'The method is not allowed for the requested URL.',
+        ],
+        '419' => [
+            'title' => 'Page Expired',
+            'subtitle' => 'The page has expired due to inactivity. Please refresh and try again.',
+        ],
+        '429' => [
+            'title' => 'Too Many Requests',
+            'subtitle' => 'You have sent too many requests in a given amount of time. Please try again later.',
+        ],
+        '500' => [
+            'title' => 'Server Error',
+            'subtitle' => 'Something went wrong on our end. Please try again later.',
+        ],
+        '503' => [
+            'title' => 'Service Unavailable',
+            'subtitle' => 'Our services are temporarily unavailable. Please try again shortly.',
+        ],
+    ],
 ];

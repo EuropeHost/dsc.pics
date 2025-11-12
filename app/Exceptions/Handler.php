@@ -3,6 +3,8 @@
 namespace App\Exceptions;
 
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
+use Illuminate\Validation\ValidationException;
+use Symfony\Component\HttpKernel\Exception\HttpException;
 use Throwable;
 
 class Handler extends ExceptionHandler
@@ -45,6 +47,16 @@ class Handler extends ExceptionHandler
     {
         $this->reportable(function (Throwable $e) {
             //
+        });
+
+        $this->renderable(function (Throwable $e, $request) {
+            if ($e instanceof ValidationException) {
+                return;
+            }
+
+            $statusCode = $e instanceof HttpException ? $e->getStatusCode() : 500;
+
+            return response()->view('pages.errors', ['exception' => $e], $statusCode);
         });
     }
 }

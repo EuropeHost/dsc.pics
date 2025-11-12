@@ -6,38 +6,33 @@
             name="viewport"
             content="width=device-width, initial-scale=1.0"
         />
-        <title>{{ config('app.name', 'dcpic.eu') }}</title>
+        <title>{{ config('app.name', 'dsc.pics') }}</title>
 
-        <!-- TailwindCSS -->
-        <!--script src="https://cdn.tailwindcss.com"></script-->
         @vite(['resources/css/app.css', 'resources/js/app.js'])
-        <!-- Bootstrap Icons -->
         <link
             rel="stylesheet"
             href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css"
         />
-
-        <!-- Custom CSS -->
-        {{--<link rel="stylesheet" href="{{ asset('css/discord-login-btn.css') }}" />
-        <link rel="stylesheet" href="{{ asset('css/preloader.css') }}" />
-        <link rel="stylesheet" href="{{ asset('css/scroll-down-btn.css') }}" />
-        <link rel="stylesheet" href="{{ asset('css/feature-card.css') }}" />
-        <link rel="stylesheet" href="{{ asset('css/stats.css') }}" />
-        <link rel="stylesheet" href="{{ asset('css/animations.css') }}" />--}}
-
     </head>
 
-    <body class="min-h-screen flex flex-col bg-gray-100 text-gray-900 dark:bg-gray-900 dark:text-gray-100">
-        <div id="preloader"><div class="spinner"></div></div>
+    <body
+        class="min-h-screen flex flex-col bg-gray-100 text-gray-900 dark:bg-gray-900 dark:text-gray-100"
+    >
+        <div id="preloader">
+            <div class="spinner"></div>
+        </div>
 
-        <!--@include('components.announcement')-->
-        @include('components.navbar')
+        @if(empty($hideNavbar))
+            @include('components.navbar')
+        @endif
 
         <main class="flex-grow">
             @yield('content')
         </main>
 
-        @include('components.footer')
+        @if(empty($hideFooter))
+            @include('components.footer')
+        @endif
 
         <script
             defer
@@ -47,9 +42,8 @@
         <script>
             window.addEventListener('load', () => {
                 document.getElementById('preloader')?.classList.add('hidden');
-                // Dispatch custom event after preloader is hidden
                 window.dispatchEvent(new Event('preloader:done'));
-                window._preloaderDone = true; // Set a flag if needed elsewhere
+                window._preloaderDone = true;
             });
         </script>
 
