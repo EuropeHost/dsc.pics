@@ -1,5 +1,5 @@
 <nav
-    class="bg-white shadow-md px-4 py-3 flex justify-between items-center dark:bg-gray-800 dark:shadow-lg"
+    class="px-4 py-3 flex justify-between items-center {{ isset($glassyNavbar) && $glassyNavbar ? 'bg-white/50 backdrop-blur-lg dark:bg-gray-800/50' : 'bg-white shadow-md dark:bg-gray-800 dark:shadow-lg' }} {{ isset($stickyNavbar) && $stickyNavbar ? 'sticky top-0 z-50' : '' }} {{ isset($floatingNavbar) && $floatingNavbar ? 'absolute top-4 left-0 right-0 mx-16 rounded-lg' : '' }}"
 >
     <a
         href="{{ route('home') }}"
@@ -8,7 +8,7 @@
         {{ env('APP_NAME') }}
     </a>
 
-    <div class="flex items-center space-x-4">
+    <div class="flex items-center space-x-3">
         @auth
             @php
                 $user = auth()->user();

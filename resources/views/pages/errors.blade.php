@@ -5,6 +5,7 @@
 		class="relative min-h-screen flex flex-col items-center justify-center p-4 dark:bg-gray-900 dark:text-gray-100"
 	>
 		<div class="absolute top-4 right-4 z-20">
+            {{--@include('components.locale-switcher')--}}
             @include('components.theme-toggle')
 		</div>
 
