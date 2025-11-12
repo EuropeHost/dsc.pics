@@ -3,9 +3,9 @@
 @section('content')
     @include('pages.home._hero')
 
-    @include('pages.home._stats')
+    <!--@include('pages.home._stats')-->
 
-    @include('pages.home._leaderboards')
+    <!--@include('pages.home._leaderboards')-->
 
     @push('scripts')
         <style>
