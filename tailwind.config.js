@@ -19,23 +19,37 @@ export default {
                 sans: ['Figtree', ...defaultTheme.fontFamily.sans],
             },
             colors: {
-                'dscpics': {
-                    50: '#F5F7FA',
-                    100: '#E1E8F0',
-                    200: '#C7D1DC',
-                    300: '#A4B4C4',
-                    400: '#7F93A7',
-                    500: '#5C7186',
-                    600: '#405263',
-                    700: '#2E3D4A',
-                    800: '#1D2A33',
-                    900: '#10191F',
-                    950: '#0B1115',
+                dscpics: {
+                    50: '#F0F9FF',
+                    100: '#E0F2FE',
+                    200: '#BAE6FD',
+                    300: '#7DD3FC',
+                    400: '#38BDF8',
+                    500: '#0EA5E9',
+                    600: '#0284C7',
+                    700: '#0369A1',
+                    800: '#075985',
+                    900: '#0C4A6E',
+                    950: '#082F49',
                 },
-                'dscpics-500': '#57abff',
             },
         },
     },
 
-    plugins: [forms, typography],
+    plugins: [
+        forms,
+        typography,
+        function ({ addBase, theme }) {
+            addBase({
+                '::selection': {
+                    backgroundColor: theme('colors.dscpics.400'),
+                    color: theme('colors.white'),
+                },
+                '.dark ::selection': {
+                    backgroundColor: theme('colors.dscpics.600'),
+                    color: theme('colors.white'),
+                },
+            });
+        },
+    ],
 };
