@@ -1,5 +1,5 @@
 <nav
-    class="px-4 py-3 flex justify-between items-center {{ isset($glassyNavbar) && $glassyNavbar ? 'bg-white/50 backdrop-blur-lg dark:bg-gray-800/50' : 'bg-white shadow-md dark:bg-gray-800 dark:shadow-lg' }} {{ isset($stickyNavbar) && $stickyNavbar ? 'sticky top-0 z-50' : '' }} {{ isset($floatingNavbar) && $floatingNavbar ? 'absolute top-4 left-0 right-0 mx-16 rounded-lg' : '' }}"
+    class="px-4 py-3 flex justify-between items-center {{ isset($glassyNavbar) && $glassyNavbar ? 'bg-white/50 backdrop-blur-lg dark:bg-gray-800/50' : 'bg-white shadow-md dark:bg-gray-800 dark:shadow-lg' }} {{ isset($stickyNavbar) && $stickyNavbar ? 'sticky top-0 z-50' : '' }} {{ isset($floatingNavbar) && $floatingNavbar ? 'absolute top-4 left-0 right-0 mx-16 rounded-lg' : '' }} {{ isset($softFloatingNavbar) && $softFloatingNavbar ? 'soft-floating-navbar' : '' }}"
 >
     <a
         href="{{ route('home') }}"
@@ -49,3 +49,39 @@
         @include('components.user-dropdown')
     </div>
 </nav>
+
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const navbar = document.querySelector('.soft-floating-navbar');
+        if (!navbar) return;
+
+        const originalClasses = navbar.className;
+
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                navbar.classList.add(
+                    'absolute',
+                    'top-4',
+                    'left-0',
+                    'right-0',
+                    'mx-16',
+                    'rounded-lg',
+                    'bg-white/50',
+                    'backdrop-blur-lg',
+                    'dark:bg-gray-800/50',
+                    'sticky',
+                    'top-0',
+                    'z-50',
+                );
+                navbar.classList.remove(
+                    'bg-white',
+                    'shadow-md',
+                    'dark:bg-gray-800',
+                    'dark:shadow-lg',
+                );
+            } else {
+                navbar.className = originalClasses;
+            }
+        });
+    });
+</script>

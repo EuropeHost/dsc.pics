@@ -2,9 +2,7 @@
 
 @section('content')
     @php
-        $glassyNavbar = true;
-        $stickyNavbar = true;
-        $floatingNavbar = true;
+        $softFloatingNavbar = true;
     @endphp
     @include('pages.lander._hero')
 
@@ -13,5 +11,4 @@
     @include('pages.lander._features')
 
     @include('pages.lander._faq')
-
 @endsection
