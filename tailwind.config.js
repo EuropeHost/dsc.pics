@@ -1,5 +1,6 @@
 import defaultTheme from 'tailwindcss/defaultTheme';
 import forms from '@tailwindcss/forms';
+import typography from '@tailwindcss/typography';
 
 /** @type {import('tailwindcss').Config} */
 export default {
@@ -7,6 +8,7 @@ export default {
         './vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php',
         './storage/framework/views/*.php',
         './resources/views/**/*.blade.php',
+        './resources/js/**/*.js',
     ],
 
     darkMode: 'class',
@@ -30,11 +32,10 @@ export default {
                     900: '#10191F',
                     950: '#0B1115',
                 },
-                'dev_dscpics-500': '#57abff',
                 'dscpics-500': '#57abff',
             },
         },
     },
 
-    plugins: [forms, require('@tailwindcss/typography')],
+    plugins: [forms, typography],
 };
