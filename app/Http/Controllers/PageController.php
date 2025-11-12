@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Media;
+use App\Models\MediaView;
 use App\Models\User;
 use App\Models\Link;
 use App\Models\LinkView;
@@ -136,6 +137,39 @@ class PageController extends Controller
 
     public function lander()
     {
-        return view('pages.lander');
+        $stats = [
+            'users' => [
+                'total' => User::count(),
+                'month' => User::whereBetween('created_at', [Carbon::now()->startOfMonth(), Carbon::now()])->count(),
+                'week'  => User::whereBetween('created_at', [Carbon::now()->startOfWeek(), Carbon::now()])->count(),
+            ],
+            'media' => [
+                'total' => Media::count(),
+                'month' => Media::whereBetween('created_at', [Carbon::now()->startOfMonth(), Carbon::now()])->count(),
+                'week'  => Media::whereBetween('created_at', [Carbon::now()->startOfWeek(), Carbon::now()])->count(),
+            ],
+            'links' => [
+                'total' => Link::count(),
+                'month' => Link::whereBetween('created_at', [Carbon::now()->startOfMonth(), Carbon::now()])->count(),
+                'week'  => Link::whereBetween('created_at', [Carbon::now()->startOfWeek(), Carbon::now()])->count(),
+            ],
+            'media_views' => [
+                'total' => MediaView::count(),
+                'month' => MediaView::whereBetween('created_at', [Carbon::now()->startOfMonth(), Carbon::now()])->count(),
+                'week'  => MediaView::whereBetween('created_at', [Carbon::now()->startOfWeek(), Carbon::now()])->count(),
+            ],
+            'link_views' => [
+                'total' => LinkView::count(),
+                'month' => LinkView::whereBetween('created_at', [Carbon::now()->startOfMonth(), Carbon::now()])->count(),
+                'week'  => LinkView::whereBetween('created_at', [Carbon::now()->startOfWeek(), Carbon::now()])->count(),
+            ],
+            'storage_use' => [
+                'total' => Media::sum('size'),
+                'month' => Media::whereBetween('created_at', [Carbon::now()->startOfMonth(), Carbon::now()])->sum('size'),
+                'week'  => Media::whereBetween('created_at', [Carbon::now()->startOfWeek(), Carbon::now()])->sum('size'),
+            ],
+        ];
+
+        return view('pages.lander', compact('stats'));
     }
 }

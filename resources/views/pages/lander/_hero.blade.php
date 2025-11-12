@@ -103,7 +103,7 @@
     <div 
         x-show="show"
         x-transition.delay.800ms.duration.800ms
-        class="absolute bottom-10 left-1/2 -translate-x-1/2"
+        class="absolute bottom-6 left-1/2 -translate-x-1/2"
     >
         <a href="#stats" class="flex flex-col items-center gap-2 text-gray-600 dark:text-gray-400 hover:text-dscpics-600 dark:hover:text-dscpics-400 transition-colors duration-300 animate-bounce">
             <svg class="w-8 h-8" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" xmlns="http://www.w3.org/2000/svg">
