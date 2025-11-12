@@ -28,6 +28,8 @@
                     @endif
 
                     <div class="flex flex-wrap justify-center gap-x-3 text-xs text-gray-600 dark:text-gray-400">
+                        <span>{{ __('content.views_count', ['count' => $media->getViewCount()]) }}</span>
+                        <span>&bull;</span>
                         <span>{{ $media->created_at->diffForHumans() }}</span>
                         <span>&bull;</span>
                         <span>{{ number_format($media->size / 1024 / 1024, 2) }} MB</span>

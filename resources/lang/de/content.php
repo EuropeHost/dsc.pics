@@ -63,4 +63,5 @@ return [
     'link_views' => 'Link-Aufrufe',
     'data_for_period' => 'Daten für diesen Zeitraum.',
     'no_top_users_found' => 'Noch keine Top-Nutzer gefunden.',
+    'views_count' => ':count Aufrufe',
 ];

@@ -28,6 +28,10 @@
                         {{ $media->original_name }}
                     </div>
 
+                    <div class="text-xs text-gray-500 dark:text-gray-400 mb-2">
+                        {{ __('content.views_count', ['count' => $media->getViewCount()]) }}
+                    </div>
+
                     <div class="flex-grow"></div>
                     <div class="grid grid-cols-2 gap-2 text-sm mt-2">
 
