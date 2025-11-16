@@ -11,7 +11,7 @@
 
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             <div
-                class="p-8 rounded-xl bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-800 transition-all duration-300 hover:border-dscpics-500 dark:hover:border-dscpics-400"
+                class="p-8 rounded-xl bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-800 transition-all duration-300 hover:border-dscpics-500 dark:hover:border-dscpics-400 hover:bg-dscpics-50 dark:hover:bg-dscpics-900/10"
             >
                 <div class="flex items-center gap-4 mb-4">
                     <div class="p-3 rounded-lg bg-dscpics-100 dark:bg-dscpics-900/30 flex-shrink-0">
@@ -37,7 +37,7 @@
             </div>
 
             <div
-                class="p-8 rounded-xl bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-800 transition-all duration-300 hover:border-yellow-500 dark:hover:border-yellow-400"
+                class="p-8 rounded-xl bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-800 transition-all duration-300 hover:border-yellow-500 dark:hover:border-yellow-400 hover:bg-yellow-50 dark:hover:bg-yellow-900/10"
             >
                 <div class="flex items-center gap-4 mb-4">
                     <div class="p-3 rounded-lg bg-yellow-100 dark:bg-yellow-900/30 flex-shrink-0">
@@ -60,7 +60,7 @@
             </div>
 
             <div
-                class="p-8 rounded-xl bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-800 transition-all duration-300 hover:border-purple-500 dark:hover:border-purple-400"
+                class="p-8 rounded-xl bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-800 transition-all duration-300 hover:border-purple-500 dark:hover:border-purple-400 hover:bg-purple-50 dark:hover:bg-purple-900/10"
             >
                 <div class="flex items-center gap-4 mb-4">
                     <div class="p-3 rounded-lg bg-purple-100 dark:bg-purple-900/30 flex-shrink-0">
@@ -85,7 +85,7 @@
             </div>
 
             <div
-                class="p-8 rounded-xl bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-800 transition-all duration-300 hover:border-green-500 dark:hover:border-green-400"
+                class="p-8 rounded-xl bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-800 transition-all duration-300 hover:border-green-500 dark:hover:border-green-400 hover:bg-green-50 dark:hover:bg-green-900/10"
             >
                 <div class="flex items-center gap-4 mb-4">
                     <div class="p-3 rounded-lg bg-green-100 dark:bg-green-900/30 flex-shrink-0">
@@ -111,7 +111,7 @@
             </div>
 
             <div
-                class="p-8 rounded-xl bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-800 transition-all duration-300 hover:border-blue-500 dark:hover:border-blue-400"
+                class="p-8 rounded-xl bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-800 transition-all duration-300 hover:border-blue-500 dark:hover:border-blue-400 hover:bg-blue-50 dark:hover:bg-blue-900/10"
             >
                 <div class="flex items-center gap-4 mb-4">
                     <div class="p-3 rounded-lg bg-blue-100 dark:bg-blue-900/30 flex-shrink-0">
@@ -136,7 +136,7 @@
             </div>
 
             <div
-                class="p-8 rounded-xl bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-800 transition-all duration-300 hover:border-orange-500 dark:hover:border-orange-400"
+                class="p-8 rounded-xl bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-800 transition-all duration-300 hover:border-orange-500 dark:hover:border-orange-400 hover:bg-orange-50 dark:hover:bg-orange-900/10"
             >
                 <div class="flex items-center gap-4 mb-4">
                     <div class="p-3 rounded-lg bg-orange-100 dark:bg-orange-900/30 flex-shrink-0">
