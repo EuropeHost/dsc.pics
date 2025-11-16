@@ -3,6 +3,7 @@
 @section('content')
     @php
         $softFloatingNavbar = true;
+        //$hideNavbar = true;
     @endphp
     @include('pages.lander._hero')
 
