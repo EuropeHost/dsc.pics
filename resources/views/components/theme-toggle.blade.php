@@ -22,7 +22,7 @@
         const themes = ['system', 'light', 'dark'];
         const currentIndex = themes.indexOf(this.theme);
         this.theme = themes[(currentIndex + 1) % themes.length];
-        window.showToast('success', 'Theme changed!', 750);
+        window.showToast('success', '{{ __('content.theme_changed') }}', 750);
     }
 }" class="relative inline-flex items-center justify-center ms-4">
     <button @click="toggleTheme()"
