@@ -18,4 +18,6 @@ return [
     'link_deleted' => 'Kurzlink erfolgreich gelöscht.',
     'latest_short_links' => 'Neueste Kurzlinks',
     'create_first_link' => 'Sie müssen zuerst einen Link erstellen, bevor Sie ihn sehen können.',
+    'link_copied' => 'Link in die Zwichenablage kopiert!',
+    'copy_failed' => 'Kopieren des links fehlgeschlagen',
 ];

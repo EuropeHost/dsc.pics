@@ -18,4 +18,6 @@ return [
     'link_deleted' => 'Short link deleted successfully.',
     'latest_short_links' => 'Latest Short Links',
     'create_first_link' => 'You need to create a link before you can see it.',
+    'link_copied' => 'Link copied to clipboard!',
+    'copy_failed' => 'Failed to copy link',
 ];
