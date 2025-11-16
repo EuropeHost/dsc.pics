@@ -22,7 +22,7 @@
         const themes = ['system', 'light', 'dark'];
         const currentIndex = themes.indexOf(this.theme);
         this.theme = themes[(currentIndex + 1) % themes.length];
-        window.showToast('success', 'Theme successfully changed!');
+        window.showToast('success', 'Theme changed!', 750);
     }
 }" class="relative inline-flex items-center justify-center ms-4">
     <button @click="toggleTheme()"
@@ -32,7 +32,6 @@
                hover:bg-gray-200 dark:hover:bg-gray-700
                hover:text-gray-700 dark:hover:text-gray-300
                transition duration-200 ease-in-out focus:outline-none">
-        <!-- System Icon -->
         <template x-if="theme === 'system'">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
                 stroke-width="1.5" class="w-6 h-6">
@@ -40,7 +39,6 @@
             </svg>
         </template>
 
-        <!-- Dark Icon -->
         <template x-if="theme === 'dark'">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
                 stroke-width="1.5" class="w-6 h-6">
@@ -48,7 +46,6 @@
             </svg>
         </template>
 
-        <!-- Light Icon -->
         <template x-if="theme === 'light'">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
                 stroke-width="1.5" class="w-6 h-6">

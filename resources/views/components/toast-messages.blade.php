@@ -277,7 +277,6 @@
 </div>
 
 <style>
-    /* Add transition styles for Alpine.js */
     [x-transition:enter] {
         transition-property: transform, opacity;
         transition-duration: 300ms;
@@ -322,49 +321,48 @@
 </style>
 
 <script>
-    // Global function to show toasts dynamically
-    window.showToast = function(type, message) {
+    window.showToast = function (type, message, duration = null) {
         const container = document.getElementById('toast-container');
         if (!container) {
             console.error('Toast container not found');
             return;
         }
 
-        // Toast configuration by type
         const toastConfig = {
             success: {
                 bgColor: 'bg-green-100 dark:bg-green-700',
                 textColor: 'text-green-600 dark:text-green-200',
                 icon: '<path d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5Zm3.707 8.207-4 4a1 1 0 0 1-1.414 0l-2-2a1 1 0 0 1 1.414-1.414L9 10.586l3.293-3.293a1 1 0 0 1 1.414 1.414Z"/>',
-                duration: 5000
+                duration: 5000,
             },
             error: {
                 bgColor: 'bg-red-100 dark:bg-red-700',
                 textColor: 'text-red-600 dark:text-red-200',
                 icon: '<path d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5Zm3.707 11.793a1 1 0 1 1-1.414 1.414L10 11.414l-2.293 2.293a1 1 0 0 1-1.414-1.414L8.586 10 6.293 7.707a1 1 0 0 1 1.414-1.414L10 8.586l2.293-2.293a1 1 0 0 1 1.414 1.414L11.414 10l2.293 2.293Z"/>',
-                duration: 10000
+                duration: 10000,
             },
             warning: {
                 bgColor: 'bg-orange-100 dark:bg-orange-700',
                 textColor: 'text-orange-600 dark:text-orange-200',
                 icon: '<path d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5ZM10 15a1 1 0 1 1 0-2 1 1 0 0 1 0 2Zm1-4a1 1 0 0 1-2 0V6a1 1 0 0 1 2 0v5Z"/>',
-                duration: 5000
+                duration: 5000,
             },
             info: {
                 bgColor: 'bg-blue-100 dark:bg-blue-700',
                 textColor: 'text-blue-600 dark:text-blue-200',
                 icon: '<path d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5ZM10 15a1 1 0 1 1 0-2 1 1 0 0 1 0 2Zm1-4a1 1 0 0 1-2 0V6a1 1 0 0 1 2 0v5Z"/>',
-                duration: 5000
-            }
+                duration: 5000,
+            },
         };
 
         const config = toastConfig[type] || toastConfig.info;
+        const toastDuration = duration !== null ? duration : config.duration;
         const toastId = 'toast-dynamic-' + Date.now();
 
-        // Create toast element
         const toast = document.createElement('div');
         toast.id = toastId;
-        toast.className = 'flex w-full items-center rounded-lg border border-gray-200 bg-white p-4 pe-5 text-gray-700 shadow-lg dark:border-gray-700 dark:bg-gray-800 dark:text-gray-300 transition-all duration-300 ease-in-out transform hover:scale-105';
+        toast.className =
+            'flex w-full items-center rounded-lg border border-gray-200 bg-white p-4 pe-5 text-gray-700 shadow-lg dark:border-gray-700 dark:bg-gray-800 dark:text-gray-300 transition-all duration-300 ease-in-out transform hover:scale-105';
         toast.setAttribute('role', 'alert');
         toast.style.opacity = '0';
         toast.style.transform = 'translateX(100%)';
@@ -386,19 +384,16 @@
 
         container.appendChild(toast);
 
-        // Animate in
         setTimeout(() => {
             toast.style.transition = 'all 300ms ease-out';
             toast.style.opacity = '1';
             toast.style.transform = 'translateX(0)';
         }, 10);
 
-        // Auto remove
         const timeoutId = setTimeout(() => {
             removeToast(toast);
-        }, config.duration);
+        }, toastDuration);
 
-        // Close button handler
         const closeBtn = toast.querySelector('button');
         closeBtn.addEventListener('click', () => {
             clearTimeout(timeoutId);
@@ -416,11 +411,4 @@
             }, 300);
         }
     };
-
-    // Make sure the function is available when DOM is ready
-    if (document.readyState === 'loading') {
-        document.addEventListener('DOMContentLoaded', function() {
-            console.log('Toast system ready');
-        });
-    }
 </script>
