@@ -63,5 +63,6 @@ return [
     'link_views' => 'Link Views',
     'data_for_period' => 'Data for this period.',
     'no_top_users_found' => 'No top users found yet.',
-    'views_count' => ':count Views'
+    'views_count' => ':count Views',
+    'theme_changed' => 'Theme successfully changed!',
 ];

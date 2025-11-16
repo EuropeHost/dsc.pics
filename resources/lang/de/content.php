@@ -64,4 +64,5 @@ return [
     'data_for_period' => 'Daten für diesen Zeitraum.',
     'no_top_users_found' => 'Noch keine Top-Nutzer gefunden.',
     'views_count' => ':count Aufrufe',
+    'theme_changed' => 'Design erfolgreich geändert!',
 ];

@@ -64,4 +64,5 @@ return [
     'data_for_period' => 'Données pour cette période.',
     'no_top_users_found' => 'Aucun utilisateur en tête trouvé pour le moment.',
     'views_count' => ':count vues',
+    'theme_changed' => 'Thème changé avec succès !',
 ];
