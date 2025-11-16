@@ -34,6 +34,10 @@
             @include('components.footer')
         @endif
 
+        @if(empty($hideScrollToTop))
+            @include('components.scroll-to-top')
+        @endif
+
         <script
             defer
             src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"
