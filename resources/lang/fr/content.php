@@ -65,4 +65,6 @@ return [
     'no_top_users_found' => 'Aucun utilisateur en tête trouvé pour le moment.',
     'views_count' => ':count vues',
     'theme_changed' => 'Thème changé avec succès !',
+    'locale_switched_to' => 'Langue changée en :language.',
+    'invalid_locale_selected' => 'Langue sélectionnée non valide.',
 ];

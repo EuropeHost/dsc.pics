@@ -9,8 +9,10 @@ use App\Http\Controllers\LinkController;
 use Illuminate\Http\Request; // Added this line
 
 Route::post('/locale', function (Request $request) {
-    session(['locale' => $request->input('locale')]); // Modified this line
-    return back();
+    $locale = $request->input('locale');
+    if (!array_key_exists($locale, config('app.locales'))) { return back()->with('error', __('content.invalid_locale_selected')); }
+    session(['locale' => $locale]);
+    return back()->with('success', __('content.locale_switched_to', ['language' => config('app.locales')[$locale]],),); // TODO: display in the updated locale (curretnly uses the locale it was set bevior swiztch)
 })->name('set-locale');
 
 //Route::get('/', [PageController::class, 'home'])->name('home');

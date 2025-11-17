@@ -65,4 +65,6 @@ return [
     'no_top_users_found' => 'No top users found yet.',
     'views_count' => ':count Views',
     'theme_changed' => 'Theme successfully changed!',
+    'locale_switched_to' => 'Language switched to :language.',
+    'invalid_locale_selected' => 'Invalid language selected.',
 ];

@@ -65,4 +65,6 @@ return [
     'no_top_users_found' => 'Noch keine Top-Nutzer gefunden.',
     'views_count' => ':count Aufrufe',
     'theme_changed' => 'Design erfolgreich geändert!',
+    'locale_switched_to' => 'Sprache umgeschaltet auf :language.',
+    'invalid_locale_selected' => 'Ungültige Sprache ausgewählt.',
 ];
