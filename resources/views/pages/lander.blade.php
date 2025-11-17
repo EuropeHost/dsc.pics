@@ -12,4 +12,6 @@
     @include('pages.lander._features')
 
     @include('pages.lander._faq')
+
+    @include('components.toast-messages')
 @endsection
