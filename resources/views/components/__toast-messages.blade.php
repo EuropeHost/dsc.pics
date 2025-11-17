@@ -149,9 +149,15 @@
         @endif
 
         @if ($errors->any())
+            let errorMessages = '';
             @foreach ($errors->all() as $error)
-                window.showToast('error', "{{ $error }}", 10000);
+                errorMessages += '<li>{{ $error }}</li>';
             @endforeach
+            window.showToast(
+                'error',
+                '<ul>' + errorMessages + '</ul>',
+                10000,
+            );
         @endif
 
         @if (session('warning'))
