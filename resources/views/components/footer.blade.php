@@ -36,12 +36,12 @@
 
 	<div class="mt-4 text-xs text-gray-600 dark:text-gray-300">
         @foreach(config('app.legal_sections') as $section)
-            <a href="{{ route('pages.legal', $section) }}" class="hover:underline hover:text-dscpics-500">
-                {{ __('legal.' . $section . '.title') }}
-            </a>
+            <a href="{{ route('pages.legal', $section) }}" class="hover:underline hover:text-dscpics-500">{{ __('legal.' . $section . '.title') }}</a>
             @if(!$loop->last)
                 <span class="mx-1">|</span>
             @endif
         @endforeach
+        <span class="mx-1">|</span>
+        <a href="#" onclick="event.preventDefault(); window.showCookieNotice();" class="hover:underline hover:text-dscpics-500">Cookie Settings</a>
 	</div>
 </footer>

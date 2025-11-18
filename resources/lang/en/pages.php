@@ -85,7 +85,11 @@ return [
         ],
     ],
 
-
+    'legal' => [
+        'cookies-notice' => [
+            'content' => 'This website uses cookies to ensure you get the best experience on our website.'
+        ]
+    ],
 
     'errors' => [
         'go_home' => 'Go Home',

@@ -52,6 +52,7 @@
         </script>
 
         @stack('scripts')
+        <x-cookies-notice />
         <x-locale-suggestion />
     </body>
 </html>

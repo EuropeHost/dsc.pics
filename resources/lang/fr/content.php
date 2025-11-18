@@ -68,4 +68,6 @@ return [
     'locale_switched_to' => 'Langue changée en :language.',
     'invalid_locale_selected' => 'Langue sélectionnée non valide.',
     'language_suggestion' => 'Il semble que votre langue préférée soit :suggested_language. Souhaitez-vous changer?',
+    'accept' => 'Accepter',
+    'decline' => 'Refuser',
 ];
