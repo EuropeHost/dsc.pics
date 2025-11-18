@@ -36,6 +36,9 @@ export default {
             spacing: {
                 30: '7.5rem', // 120px
             },
+            minHeight: {
+                'screen-minus-navbar': 'calc(100vh - 64px)',
+            },
         },
     },
 
