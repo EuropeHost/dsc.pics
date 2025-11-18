@@ -1,10 +1,6 @@
 <div
     id="cookies-notice"
-    x-data="{ show: false }"
-    x-show="show"
-    x-transition:enter="slide-in"
-    x-transition:leave="slide-out"
-    class="fixed bottom-5 left-5 z-[100] hidden w-full max-w-sm rounded-lg border border-gray-200 bg-white p-4 shadow-lg dark:border-gray-700 dark:bg-gray-800"
+    class="fixed bottom-5 left-5 z-[100] hidden w-full max-w-sm rounded-lg border border-gray-200 bg-white p-4 shadow-lg transition-all duration-300 dark:border-gray-700 dark:bg-gray-800"
     role="dialog"
     aria-modal="true"
     aria-labelledby="cookies-notice-title"
@@ -28,12 +24,8 @@
                 >
                     {{ __('content.accept') }}
                 </button>
-                <!--button
-                    id="decline-cookies"
-                    class="inline-flex flex-1 items-center justify-center rounded-lg border border-gray-300 bg-white px-3 py-2 text-center text-xs font-medium text-gray-900 shadow-sm transition-all duration-200 hover:bg-gray-100 focus:outline-none focus:ring-4 focus:ring-gray-200 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:hover:bg-gray-600 dark:focus:ring-gray-700"
-                -->
                 <button
-                    id="accept-cookies"
+                    id="decline-cookies"
                     class="inline-flex flex-1 items-center justify-center rounded-lg border border-transparent bg-dscpics-600 px-3 py-2 text-center text-xs font-medium text-white shadow-sm transition-all duration-200 hover:bg-dscpics-700 focus:outline-none focus:ring-4 focus:ring-dscpics-300 dark:bg-dscpics-500 dark:hover:bg-dscpics-600 dark:focus:ring-dscpics-800"
                 >
                     {{ __('content.decline') }}
@@ -43,7 +35,6 @@
         <button
             type="button"
             id="close-cookies-notice"
-            @click="show = false"
             class="-mx-1.5 -my-1.5 ms-auto inline-flex h-8 w-16 items-center justify-center rounded-lg bg-white p-1.5 text-gray-400 hover:bg-gray-100 hover:text-gray-900 focus:ring-2 focus:ring-gray-300 dark:bg-gray-800 dark:text-gray-500 dark:hover:bg-gray-700 dark:hover:text-white"
             aria-label="Close"
         >
@@ -56,38 +47,50 @@
 </div>
 
 <script>
-document.addEventListener('alpine:init', () => {
-    Alpine.data('cookieNotice', () => ({
-        show: false,
-        init() {
-            if (localStorage.getItem('cookies_settings') === null) {
-                this.show = true;
-            }
+(function() {
+    const cookiesNotice = document.getElementById('cookies-notice');
+    const acceptBtn = document.getElementById('accept-cookies');
+    const declineBtn = document.getElementById('decline-cookies');
+    const closeBtn = document.getElementById('close-cookies-notice');
 
-            document.getElementById('accept-cookies').addEventListener('click', () => {
-                localStorage.setItem('cookies_settings', 'accepted');
-                this.show = false;
-            });
-
-            document.getElementById('decline-cookies').addEventListener('click', () => {
-                localStorage.setItem('cookies_settings', 'declined');
-                this.show = false;
-            });
-        },
-        openNotice() {
-            this.show = true;
-        }
-    }));
-});
-
-window.showCookieNotice = function() {
-    const cookiesNoticeElement = document.getElementById('cookies-notice');
-    if (cookiesNoticeElement && cookiesNoticeElement.__alpine) {
-        cookiesNoticeElement.__alpine.$data.openNotice();
-    } else {
-        if (cookiesNoticeElement) {
-            cookiesNoticeElement.style.display = 'block';
-        }
+    function showNotice() {
+        cookiesNotice.classList.remove('hidden');
+        setTimeout(() => {
+            cookiesNotice.style.opacity = '1';
+            cookiesNotice.style.transform = 'translateY(0)';
+        }, 10);
     }
-};
+
+    function hideNotice() {
+        cookiesNotice.style.opacity = '0';
+        cookiesNotice.style.transform = 'translateY(20px)';
+        setTimeout(() => {
+            cookiesNotice.classList.add('hidden');
+        }, 300);
+    }
+
+    if (localStorage.getItem('cookies_settings') === null) {
+        cookiesNotice.style.opacity = '0';
+        cookiesNotice.style.transform = 'translateY(20px)';
+        showNotice();
+    }
+
+    acceptBtn.addEventListener('click', () => {
+        localStorage.setItem('cookies_settings', 'accepted');
+        hideNotice();
+    });
+
+    declineBtn.addEventListener('click', () => {
+        localStorage.setItem('cookies_settings', 'declined');
+        hideNotice();
+    });
+
+    closeBtn.addEventListener('click', () => {
+        hideNotice();
+    });
+
+    window.showCookieNotice = function() {
+        showNotice();
+    };
+})();
 </script>
