@@ -52,5 +52,6 @@
         </script>
 
         @stack('scripts')
+        <x-locale-suggestion />
     </body>
 </html>

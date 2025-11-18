@@ -6,7 +6,11 @@ use App\Http\Controllers\PageController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\LinkController;
-use Illuminate\Http\Request; // Added this line
+use App\Http\Controllers\LocaleController;
+use Illuminate\Http\Request;
+
+Route::post('/locale/apply', [LocaleController::class, 'applySuggestion'])->name('locale.apply');
+Route::post('/locale/dismiss', [LocaleController::class, 'dismissSuggestion'])->name('locale.dismiss');
 
 Route::post('/locale', function (Request $request) {
     $locale = $request->input('locale');
