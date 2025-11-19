@@ -12,7 +12,7 @@
     </p>
     <p class="text-gray-700 dark:text-gray-300 mb-2">
         {{ __('content.total_link_views') }}:
-        <span class="font-medium">{{ number_format($totalUserLinkViews) }}</span>
+        <span class="font-medium">{{ number_format($totalUserLinkViews) }}</span-->
     </p>
     <p class="text-gray-700 dark:text-gray-300">
         {{ __('content.account_created') }}:

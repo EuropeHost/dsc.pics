@@ -35,6 +35,12 @@ class ProfileController extends Controller
         return view('profile.show', compact('user', 'publicMediaCount', 'privateMediaCount'));
     }
 
+    public function activity()
+    {
+        $activities = Auth::user()->actions()->latest()->paginate(20);
+        return view('profile.activity', compact('activities'));
+    }
+
     public function destroy(Request $request)
     {
         $user = $request->user();

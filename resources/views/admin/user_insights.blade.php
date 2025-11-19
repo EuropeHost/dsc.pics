@@ -11,9 +11,14 @@
             modalEmailHover: false
         }"
     >
-        <h1 class="text-3xl font-bold text-gray-800 dark:text-gray-100 mb-6">
-            {{ __('admin.user_details') }}
-        </h1>
+        <div class="flex justify-between items-center mb-6">
+            <h1 class="text-3xl font-bold text-gray-800 dark:text-gray-100">
+                {{ __('admin.user_details') }}
+            </h1>
+            <a href="{{ route('admin.users.activity', $user) }}" class="text-blue-500 hover:text-blue-700 dark:text-blue-400 dark:hover:text-blue-600">
+                {{ __('activity.activity_log') }} &rarr;
+            </a>
+        </div>
 
         <div
             class="flex flex-col sm:flex-row items-center sm:items-start mb-6 bg-gray-50 dark:bg-gray-900 p-6 rounded-lg border border-gray-200 dark:border-gray-700 shadow-sm"

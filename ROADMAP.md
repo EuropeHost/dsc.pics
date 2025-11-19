@@ -127,3 +127,6 @@ This document outlines the planned features and refactoring work for the dsc.pic
     - [ ] 5. **Styling & Accessibility:**
         - [ ] Style the command palette for a clean, intuitive user experience in both light and dark modes.
         - [ ] Ensure it's keyboard-navigable and accessible.
+
+
+[ ] Manifest.json and js-worker(s) ...

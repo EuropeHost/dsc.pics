@@ -40,6 +40,7 @@ Route::middleware('auth')->group(function () {
         Route::redirect('/', '/admin/dashboard');
         Route::get('/dashboard', [AdminController::class, 'index'])->name('dashboard');
         Route::get('/users/{user}', [AdminController::class, 'showUser'])->name('users.show');
+        Route::get('/users/{user}/activity', [AdminController::class, 'userActivity'])->name('users.activity');
         Route::patch('/users/{user}/role', [AdminController::class, 'updateRole'])->name('users.update_role');
         Route::delete('/users/{user}', [AdminController::class, 'destroy'])->name('users.destroy');
     });
@@ -47,6 +48,7 @@ Route::middleware('auth')->group(function () {
     // Profile Routes
     Route::prefix('profile')->name('profile.')->group(function () {
         Route::get('/', [ProfileController::class, 'show'])->name('show');
+        Route::get('/activity', [ProfileController::class, 'activity'])->name('activity');
         Route::delete('/', [ProfileController::class, 'destroy'])->name('destroy');
     });
 

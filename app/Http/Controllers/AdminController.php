@@ -73,6 +73,12 @@ class AdminController extends Controller
 	    return view('admin.user_insights', compact('user', 'userMedia', 'userLinks', 'totalUserLinkViews'));
 	}
 
+    public function userActivity(User $user)
+    {
+        $activities = $user->actions()->latest()->paginate(20);
+        return view('admin.users.activity', compact('user', 'activities'));
+    }
+
     public function updateRole(Request $request, User $user)
     {
         if (auth()->user()->id === $user->id) {
