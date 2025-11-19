@@ -16,4 +16,5 @@ return [
     'no_tokens' => 'You have no API tokens.',
     'last_used' => 'Last used',
     'never' => 'Never',
+    'get_started_create_token' => 'Get started by creating your first API-Token'
 ];

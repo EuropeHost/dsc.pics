@@ -4,6 +4,8 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Api\V2\MediaController;
 use App\Http\Controllers\Api\V2\LinkController;
 use App\Http\Controllers\Api\V2\StatsController;
+use App\Http\Controllers\Api\V2\UserController;
+use App\Http\Controllers\Api\V2\ActivityLogController;
 
 // Public routes
 Route::get('/stats', [StatsController::class, 'index']);

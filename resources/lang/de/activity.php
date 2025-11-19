@@ -10,6 +10,7 @@ return [
     'back_to_profile' => 'Zurück zum Profil',
     'back_to_users' => 'Zurück zu den Benutzern',
     'back_to_user_profile' => 'Zurück zum Benutzerprofil',
+    'not_available' => 'Nicht verfügbar',
 
     'actions' => [
         'login' => 'Eingeloggt',
