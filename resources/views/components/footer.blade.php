@@ -33,7 +33,7 @@
         @endif
 
     </div>
-
+    <a href="{{ route('docs.api') }}" class="hover:underline hover:text-dscpics-500">API-Docs</a>
 	<div class="mt-4 text-xs text-gray-600 dark:text-gray-300">
         @foreach(config('app.legal_sections') as $section)
             <a href="{{ route('pages.legal', $section) }}" class="hover:underline hover:text-dscpics-500">{{ __('legal.' . $section . '.title') }}</a>

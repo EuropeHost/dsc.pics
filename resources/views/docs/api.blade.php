@@ -1,108 +1,282 @@
 @extends('layouts.main')
 
 @section('content')
-    <div class="flex">
-        <!-- Sidebar -->
-        <aside class="w-64 bg-gray-100 dark:bg-gray-800 p-6 shadow-lg h-screen sticky top-0 overflow-y-auto">
-            <h3 class="text-xl font-bold text-dscpics-700 dark:text-dscpics-300 mb-5 pb-3 border-b border-gray-300 dark:border-gray-600">
-                API Endpoints
-            </h3>
-            <nav>
-                @foreach (__('docs.api') as $version => $versionData)
-                    <h4 class="text-lg font-semibold text-gray-700 dark:text-gray-300 mt-5 mb-2">{{ $version }}</h4>
-                    @foreach ($versionData as $groupName => $groupEndpoints)
-                        <p class="font-medium text-gray-600 dark:text-gray-400 mt-3 mb-1">{{ $groupName }}</p>
-                        <ul class="ml-3 border-l border-gray-300 dark:border-gray-700">
-                            @foreach ($groupEndpoints as $endpoint)
-                                @php
-                                    $endpointId = urlencode($endpoint['route']);
-                                @endphp
-                                <li class="mb-1">
-                                    <a href="#{{ $endpointId }}"
-                                        class="block py-1 px-2 text-gray-700 dark:text-gray-300 hover:bg-dscpics-100 dark:hover:bg-dscpics-900 rounded transition-colors duration-200">
-                                        <span class="text-xs font-bold uppercase mr-2
-                                            @if (strtolower($endpoint['method']) === 'get') text-api-get
-                                            @elseif (strtolower($endpoint['method']) === 'post') text-api-post
-                                            @elseif (strtolower($endpoint['method']) === 'delete') text-api-delete
-                                            @elseif (strtolower($endpoint['method']) === 'put') text-api-put
-                                            @elseif (strtolower($endpoint['method']) === 'patch') text-api-patch @endif">
-                                            {{ $endpoint['method'] }}
-                                        </span>
-                                        <code class="text-xs">{{ $endpoint['route'] }}</code>
-                                    </a>
-                                </li>
-                            @endforeach
-                        </ul>
-                    @endforeach
-                @endforeach
-            </nav>
-        </aside>
+<div class="min-h-screen bg-gray-50 dark:bg-gray-900">
+    <!-- Hero Section -->
+    <div class="bg-white dark:bg-gray-800 border-b border-gray-200 dark:border-gray-700">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+            <div class="text-center">
+                <h1 class="text-4xl font-bold text-gray-900 dark:text-white mb-4">
+                    API Documentation
+                </h1>
+                <p class="text-lg text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
+                    Complete reference for all available API endpoints. Choose a version and explore the documentation below.
+                </p>
+            </div>
+        </div>
+    </div>
 
-        <!-- Main Content -->
-        <main class="flex-1 container mx-auto p-4 sm:p-6 lg:p-8">
-            <h1 class="text-3xl font-bold text-dscpics-700 dark:text-dscpics-300 mb-6 pb-2 border-b-2 border-gray-200">
-                API Documentation
-            </h1>
-
-            @foreach (__('docs.api') as $version => $versionData)
-                <h2 class="text-2xl font-semibold text-dscpics-600 dark:text-dscpics-400 mt-8 mb-4 pb-2 border-b border-gray-200">
-                    {{ $version }}
-                </h2>
-                @foreach ($versionData as $groupName => $groupEndpoints)
-                    <div class="endpoint-group mb-8 pl-4 border-l-4 border-gray-300">
-                        <h3 class="text-xl font-semibold text-gray-800 dark:text-gray-200 mt-6 mb-4">
-                            {{ $groupName }}
-                        </h3>
-                        @foreach ($groupEndpoints as $endpoint)
-                            @php
-                                $endpointId = urlencode($endpoint['route']);
-                            @endphp
-                            <div id="{{ $endpointId }}" class="endpoint bg-white dark:bg-gray-800 p-5 mb-5 rounded-lg shadow-md border border-gray-200 dark:border-gray-700">
-                                <div class="flex items-center mb-3">
-                                    <span
-                                        class="endpoint-method mr-3 px-3 py-1 rounded text-white text-sm font-bold uppercase
-                                        @if (strtolower($endpoint['method']) === 'get') bg-api-get
-                                        @elseif (strtolower($endpoint['method']) === 'post') bg-api-post
-                                        @elseif (strtolower($endpoint['method']) === 'delete') bg-api-delete
-                                        @elseif (strtolower($endpoint['method']) === 'put') bg-api-put text-gray-900
-                                        @elseif (strtolower($endpoint['method']) === 'patch') bg-api-patch @endif"
-                                    >
-                                        {{ $endpoint['method'] }}
-                                    </span>
-                                    <code class="bg-gray-100 dark:bg-gray-700 px-3 py-1 rounded text-gray-700 dark:text-gray-300 text-sm">
-                                        {{ $endpoint['route'] }}
-                                    </code>
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+            
+            <!-- Sidebar Navigation -->
+            <aside class="lg:col-span-3">
+                <div class="sticky top-8">
+                    <div class="bg-white dark:bg-gray-800 rounded-lg border border-gray-200 dark:border-gray-700 overflow-hidden">
+                        <div class="px-4 py-3 bg-gray-50 dark:bg-gray-700 border-b border-gray-200 dark:border-gray-600">
+                            <h2 class="text-sm font-semibold text-gray-900 dark:text-white uppercase tracking-wide">
+                                API Endpoints
+                            </h2>
+                        </div>
+                        
+                        <nav class="px-2 py-4 max-h-[calc(100vh-12rem)] overflow-y-auto">
+                            @foreach (__('docs.api') as $version => $versionData)
+                                <div class="mb-6">
+                                    <h3 class="px-3 text-xs font-semibold text-gray-500 dark:text-gray-400 uppercase tracking-wider mb-2">
+                                        {{ $version }}
+                                    </h3>
+                                    
+                                    @foreach ($versionData as $groupName => $groupEndpoints)
+                                        <div class="mb-4">
+                                            <div class="px-3 py-1.5 text-sm font-medium text-gray-700 dark:text-gray-300">
+                                                {{ $groupName }}
+                                            </div>
+                                            <ul class="space-y-1">
+                                                @foreach ($groupEndpoints as $endpoint)
+                                                    @php $endpointId = urlencode($endpoint['route']); @endphp
+                                                    <li>
+                                                        <a href="#{{ $endpointId }}" 
+                                                           class="group flex items-center px-3 py-2 text-sm rounded-md hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors">
+                                                            <span class="inline-flex items-center justify-center w-14 px-2 py-0.5 text-xs font-medium rounded mr-2
+                                                                @if(strtoupper($endpoint['method']) === 'GET') bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-200
+                                                                @elseif(strtoupper($endpoint['method']) === 'POST') bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-blue-200
+                                                                @elseif(strtoupper($endpoint['method']) === 'DELETE') bg-red-100 text-red-800 dark:bg-red-900 dark:text-red-200
+                                                                @elseif(strtoupper($endpoint['method']) === 'PUT') bg-yellow-100 text-yellow-800 dark:bg-yellow-900 dark:text-yellow-200
+                                                                @elseif(strtoupper($endpoint['method']) === 'PATCH') bg-cyan-100 text-cyan-800 dark:bg-cyan-900 dark:text-cyan-200
+                                                                @endif">
+                                                                {{ strtoupper($endpoint['method']) }}
+                                                            </span>
+                                                            <span class="text-gray-600 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white truncate">
+                                                                {{ $endpoint['route'] }}
+                                                            </span>
+                                                        </a>
+                                                    </li>
+                                                @endforeach
+                                            </ul>
+                                        </div>
+                                    @endforeach
                                 </div>
-                                <p class="mb-3 text-gray-700 dark:text-gray-300">
-                                    <strong class="text-dscpics-500">Description:</strong>
-                                    {{ $endpoint['description'] }}
-                                </p>
+                            @endforeach
+                        </nav>
+                    </div>
+                </div>
+            </aside>
 
-                                @if (isset($endpoint['authentication']))
-                                    <p class="mb-3 text-gray-700 dark:text-gray-300">
-                                        <strong class="text-dscpics-500">Authentication:</strong>
-                                        {{ $endpoint['authentication'] }}
-                                    </p>
-                                @endif
+            <!-- Main Content -->
+            <main class="lg:col-span-9">
+                @foreach (__('docs.api') as $version => $versionData)
+                    <div class="mb-12">
+                        <!-- Version Header -->
+                        <div class="mb-8">
+                            <h2 class="text-3xl font-bold text-gray-900 dark:text-white mb-2">
+                                {{ $version }}
+                            </h2>
+                            <div class="h-1 w-20 bg-dscpics-500 rounded-full"></div>
+                        </div>
 
-                                @if (isset($endpoint['request']))
-                                    <h4 class="text-lg font-medium text-gray-800 dark:text-gray-200 mb-2 mt-4">
-                                        Request:
-                                    </h4>
-                                    <pre class="bg-gray-100 dark:bg-gray-900 p-4 rounded-md overflow-x-auto text-sm text-gray-800 dark:text-gray-200 border-l-4 border-blue-500"><code>{{ $endpoint['request'] }}</code></pre>
-                                @endif
+                        @foreach ($versionData as $groupName => $groupEndpoints)
+                            <div class="mb-10">
+                                <!-- Group Header -->
+                                <div class="mb-6">
+                                    <h3 class="text-2xl font-semibold text-gray-900 dark:text-white mb-2">
+                                        {{ $groupName }}
+                                    </h3>
+                                    <div class="h-0.5 w-16 bg-gray-300 dark:bg-gray-600 rounded-full"></div>
+                                </div>
 
-                                @if (isset($endpoint['response']))
-                                    <h4 class="text-lg font-medium text-gray-800 dark:text-gray-200 mb-2 mt-4">
-                                        Response:
-                                    </h4>
-                                    <pre class="bg-gray-100 dark:bg-gray-900 p-4 rounded-md overflow-x-auto text-sm text-gray-800 dark:text-gray-200 border-l-4 border-blue-500"><code>{{ $endpoint['response'] }}</code></pre>
-                                @endif
+                                <!-- Endpoints -->
+                                <div class="space-y-6">
+                                    @foreach ($groupEndpoints as $endpoint)
+                                        @php $endpointId = urlencode($endpoint['route']); @endphp
+                                        
+                                        <article id="{{ $endpointId }}" 
+                                                 class="bg-white dark:bg-gray-800 rounded-lg border border-gray-200 dark:border-gray-700 overflow-hidden scroll-mt-24 transition-all duration-300">
+                                            
+                                            <!-- Endpoint Header -->
+                                            <div class="px-6 py-4 bg-gray-50 dark:bg-gray-700/50 border-b border-gray-200 dark:border-gray-600">
+                                                <div class="flex items-center flex-wrap gap-3">
+                                                    <span class="inline-flex items-center px-3 py-1 text-sm font-semibold rounded-md
+                                                        @if(strtoupper($endpoint['method']) === 'GET') bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-200
+                                                        @elseif(strtoupper($endpoint['method']) === 'POST') bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-blue-200
+                                                        @elseif(strtoupper($endpoint['method']) === 'DELETE') bg-red-100 text-red-800 dark:bg-red-900 dark:text-red-200
+                                                        @elseif(strtoupper($endpoint['method']) === 'PUT') bg-yellow-100 text-yellow-800 dark:bg-yellow-900 dark:text-yellow-200
+                                                        @elseif(strtoupper($endpoint['method']) === 'PATCH') bg-cyan-100 text-cyan-800 dark:bg-cyan-900 dark:text-cyan-200
+                                                        @endif">
+                                                        {{ strtoupper($endpoint['method']) }}
+                                                    </span>
+                                                    <code class="text-sm font-mono text-gray-900 dark:text-white bg-gray-100 dark:bg-gray-800 px-3 py-1 rounded-md">
+                                                        {{ $endpoint['route'] }}
+                                                    </code>
+                                                </div>
+                                            </div>
+
+                                            <!-- Endpoint Body -->
+                                            <div class="px-6 py-5 space-y-5">
+                                                
+                                                <!-- Description -->
+                                                <div>
+                                                    <h4 class="text-xs font-semibold text-gray-500 dark:text-gray-400 uppercase tracking-wide mb-2">
+                                                        Description
+                                                    </h4>
+                                                    <p class="text-gray-700 dark:text-gray-300 leading-relaxed">
+                                                        {{ $endpoint['description'] }}
+                                                    </p>
+                                                </div>
+
+                                                <!-- Authentication -->
+                                                @if (isset($endpoint['authentication']))
+                                                    <div>
+                                                        <h4 class="text-xs font-semibold text-gray-500 dark:text-gray-400 uppercase tracking-wide mb-2">
+                                                            Authentication
+                                                        </h4>
+                                                        <div class="inline-flex items-center gap-2 px-3 py-1.5 bg-amber-50 dark:bg-amber-900/20 border border-amber-200 dark:border-amber-800 rounded-md">
+                                                            <svg class="w-4 h-4 text-amber-600 dark:text-amber-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/>
+                                                            </svg>
+                                                            <span class="text-sm font-medium text-amber-800 dark:text-amber-300">
+                                                                {{ $endpoint['authentication'] }}
+                                                            </span>
+                                                        </div>
+                                                    </div>
+                                                @endif
+
+                                                <!-- Request -->
+                                                @if (isset($endpoint['request']))
+                                                    <div>
+                                                        <h4 class="text-xs font-semibold text-gray-500 dark:text-gray-400 uppercase tracking-wide mb-2">
+                                                            Request
+                                                        </h4>
+                                                        <div class="rounded-lg overflow-hidden border border-gray-200 dark:border-gray-600">
+                                                            <div class="bg-gray-800 px-4 py-2 flex items-center justify-between">
+                                                                <span class="text-xs font-medium text-gray-400">JSON</span>
+                                                                <button onclick="copyToClipboard(this)" 
+                                                                        data-code="{{ htmlspecialchars($endpoint['request']) }}"
+                                                                        class="text-xs text-gray-400 hover:text-white transition-colors">
+                                                                    Copy
+                                                                </button>
+                                                            </div>
+                                                            <pre class="bg-gray-900 text-gray-100 p-4 overflow-x-auto text-sm"><code>{{ $endpoint['request'] }}</code></pre>
+                                                        </div>
+                                                    </div>
+                                                @endif
+
+                                                <!-- Response -->
+                                                @if (isset($endpoint['response']))
+                                                    <div>
+                                                        <h4 class="text-xs font-semibold text-gray-500 dark:text-gray-400 uppercase tracking-wide mb-2">
+                                                            Response
+                                                        </h4>
+                                                        <div class="rounded-lg overflow-hidden border border-gray-200 dark:border-gray-600">
+                                                            <div class="bg-gray-800 px-4 py-2 flex items-center justify-between">
+                                                                <span class="text-xs font-medium text-gray-400">JSON</span>
+                                                                <button onclick="copyToClipboard(this)" 
+                                                                        data-code="{{ htmlspecialchars($endpoint['response']) }}"
+                                                                        class="text-xs text-gray-400 hover:text-white transition-colors">
+                                                                    Copy
+                                                                </button>
+                                                            </div>
+                                                            <pre class="bg-gray-900 text-gray-100 p-4 overflow-x-auto text-sm"><code>{{ $endpoint['response'] }}</code></pre>
+                                                        </div>
+                                                    </div>
+                                                @endif
+
+                                            </div>
+                                        </article>
+                                    @endforeach
+                                </div>
                             </div>
                         @endforeach
                     </div>
                 @endforeach
-            @endforeach
-        </main>
+            </main>
+
+        </div>
     </div>
+</div>
+
+<!-- Copy to Clipboard Script -->
+<script>
+function copyToClipboard(button) {
+    const code = button.getAttribute('data-code');
+    navigator.clipboard.writeText(code).then(() => {
+        // Show success toast
+        if (typeof window.showToast === 'function') {
+            window.showToast('success', 'Code copied to clipboard!', 2000);
+        } else {
+            // Fallback if toast is not available
+            const originalText = button.textContent;
+            button.textContent = 'Copied!';
+            button.classList.add('text-green-400');
+            setTimeout(() => {
+                button.textContent = originalText;
+                button.classList.remove('text-green-400');
+            }, 2000);
+        }
+    }).catch(err => {
+        // Show error toast
+        if (typeof window.showToast === 'function') {
+            window.showToast('error', 'Failed to copy code. Please try again.', 3000);
+        } else {
+            console.error('Failed to copy:', err);
+        }
+    });
+}
+
+// Smooth scroll for anchor links with proper offset
+document.addEventListener('DOMContentLoaded', function() {
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            const targetId = this.getAttribute('href').substring(1);
+            const target = document.getElementById(targetId);
+            
+            if (target) {
+                // Calculate offset for sticky header (if any) + some padding
+                const offset = 100;
+                const targetPosition = target.getBoundingClientRect().top + window.pageYOffset - offset;
+                
+                window.scrollTo({
+                    top: targetPosition,
+                    behavior: 'smooth'
+                });
+                
+                // Update URL without jumping
+                history.pushState(null, null, '#' + targetId);
+                
+                // Highlight the target briefly
+                target.classList.add('ring-2', 'ring-dscpics-500', 'ring-opacity-50');
+                setTimeout(() => {
+                    target.classList.remove('ring-2', 'ring-dscpics-500', 'ring-opacity-50');
+                }, 2000);
+            }
+        });
+    });
+    
+    // Handle direct URL hash on page load
+    if (window.location.hash) {
+        setTimeout(() => {
+            const targetId = window.location.hash.substring(1);
+            const target = document.getElementById(targetId);
+            if (target) {
+                const offset = 100;
+                const targetPosition = target.getBoundingClientRect().top + window.pageYOffset - offset;
+                window.scrollTo({
+                    top: targetPosition,
+                    behavior: 'smooth'
+                });
+            }
+        }, 100);
+    }
+});
+</script>
 @endsection
