@@ -10,4 +10,12 @@ return [
     'back_to_profile' => 'Back to Profile',
     'back_to_users' => 'Back to Users',
     'back_to_user_profile' => 'Back to User Profile',
+
+    'actions' => [
+        'login' => 'Logged in',
+        'logout' => 'Logged out',
+        'created' => 'Created a new :model',
+        'updated' => 'Updated a :model',
+        'deleted' => 'Deleted a :model',
+    ],
 ];

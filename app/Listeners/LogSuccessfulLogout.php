@@ -24,7 +24,7 @@ class LogSuccessfulLogout
         if ($event->user) {
             activity()
                 ->causedBy($event->user)
-                ->log('Logged out');
+                ->log('logout');
         }
     }
 }

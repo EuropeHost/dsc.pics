@@ -10,5 +10,13 @@ return [
     'back_to_profile' => 'Retour au profil',
     'back_to_users' => 'Retour aux utilisateurs',
     'back_to_user_profile' => 'Retour au profil de l\'utilisateur',
+
+    'actions' => [
+        'login' => 'Connecté',
+        'logout' => 'Déconnecté',
+        'created' => 'A créé un nouveau :model',
+        'updated' => 'A mis à jour un :model',
+        'deleted' => 'A supprimé un :model',
+    ],
 ];
 

@@ -23,6 +23,6 @@ class LogSuccessfulLogin
     {
         activity()
             ->causedBy($event->user)
-            ->log('Logged in');
+            ->log('login');
     }
 }

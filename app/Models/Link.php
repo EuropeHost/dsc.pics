@@ -18,7 +18,7 @@ class Link extends Model
             ->logOnly(['original_url', 'slug'])
             ->logOnlyDirty()
             ->dontSubmitEmptyLogs()
-            ->setDescriptionForEvent(fn(string $eventName) => "This link has been {$eventName}");
+            ->setDescriptionForEvent(fn(string $eventName) => $eventName);
     }
 
     protected $fillable = [

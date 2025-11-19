@@ -22,7 +22,7 @@ class User extends Authenticatable
             ->logOnly(['name', 'email', 'role', 'locale'])
             ->logOnlyDirty()
             ->dontSubmitEmptyLogs()
-            ->setDescriptionForEvent(fn(string $eventName) => "This user has been {$eventName}");
+            ->setDescriptionForEvent(fn(string $eventName) => $eventName);
     }
 
     protected $fillable = [

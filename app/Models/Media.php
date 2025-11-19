@@ -19,7 +19,7 @@ class Media extends Model
             ->logOnly(['is_public', 'slug'])
             ->logOnlyDirty()
             ->dontSubmitEmptyLogs()
-            ->setDescriptionForEvent(fn(string $eventName) => "This media has been {$eventName}");
+            ->setDescriptionForEvent(fn(string $eventName) => $eventName);
     }
 
     protected $fillable = [

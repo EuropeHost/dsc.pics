@@ -27,7 +27,7 @@
                     @forelse ($activities as $activity)
                         <tr>
                             <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900 dark:text-gray-100">
-                                {{ $activity->description }}
+                                {{ $activity->subject ? __('activity.actions.' . $activity->description, ['model' => class_basename($activity->subject_type)]) : __('activity.actions.' . $activity->description) }}
                             </td>
                             <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500 dark:text-gray-400">
                                 {{ $activity->created_at->diffForHumans() }} ({{ $activity->created_at }})
