@@ -21,4 +21,5 @@ return [
     'delete_account_warning_detail' => 'Sind Sie absolut sicher, dass Sie Ihr Konto löschen möchten? Diese Aktion ist unwiderruflich und alle Ihre Daten gehen verloren.',
     'delete_account_confirm' => 'Ja, Konto löschen',
     'account_deleted_success' => 'Ihr Konto wurde erfolgreich gelöscht.',
+    'manage' => 'Verwalten',
 ];

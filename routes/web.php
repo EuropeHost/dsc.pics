@@ -49,6 +49,7 @@ Route::middleware('auth')->group(function () {
     Route::prefix('profile')->name('profile.')->group(function () {
         Route::get('/', [ProfileController::class, 'show'])->name('show');
         Route::get('/activity', [ProfileController::class, 'activity'])->name('activity');
+        Route::resource('api-tokens', \App\Http\Controllers\Profile\ApiTokenController::class)->except(['show', 'edit', 'update']);
         Route::delete('/', [ProfileController::class, 'destroy'])->name('destroy');
     });
 

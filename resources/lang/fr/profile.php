@@ -21,4 +21,5 @@ return [
     'delete_account_warning_detail' => 'Êtes-vous absolument sûr de vouloir supprimer votre compte ? Cette action est irréversible et toutes vos données seront perdues.',
     'delete_account_confirm' => 'Oui, Supprimer mon compte',
     'account_deleted_success' => 'Votre compte a été supprimé avec succès.',
+    'manage' => 'Gérer',
 ];

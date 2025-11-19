@@ -26,6 +26,10 @@
         </div>
 
         <div class="mb-8">
+            @include('profile._api')
+        </div>
+
+        <div class="mb-8">
             <h2 class="text-2xl font-semibold text-red-600 dark:text-red-500 mb-4">
                 {{ __('profile.danger_zone') }}
             </h2>

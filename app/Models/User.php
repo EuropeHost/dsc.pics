@@ -11,10 +11,11 @@ use Illuminate\Support\Str;
 use Spatie\Activitylog\Traits\LogsActivity;
 use Spatie\Activitylog\LogOptions;
 use Spatie\Activitylog\Traits\CausesActivity;
+use Laravel\Sanctum\HasApiTokens;
 
 class User extends Authenticatable
 {
-    use Notifiable, HasFactory, LogsActivity, CausesActivity;
+    use Notifiable, HasFactory, LogsActivity, CausesActivity, HasApiTokens;
 
     public function getActivitylogOptions(): LogOptions
     {
@@ -59,6 +60,11 @@ class User extends Authenticatable
 	{
 	    return $this->hasMany(Link::class);
 	}
+
+    public function apiTokens()
+    {
+        return $this->hasMany(ApiToken::class);
+    }
 	
 	public function getStorageUsedAttribute()
 	{
