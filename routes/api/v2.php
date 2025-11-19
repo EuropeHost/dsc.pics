@@ -23,4 +23,10 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::post('/links', [LinkController::class, 'store'])->middleware('ability:links:create');
     Route::get('/links/{link}', [LinkController::class, 'show'])->middleware('ability:links:read');
     Route::delete('/links/{link}', [LinkController::class, 'destroy'])->middleware('ability:links:delete');
+
+    // User Stats
+    Route::get('/user/stats', [UserController::class, 'stats'])->middleware('ability:user:stats');
+
+    // Activity Logs
+    Route::get('/activity', [ActivityLogController::class, 'index'])->middleware('ability:activity:read');
 });

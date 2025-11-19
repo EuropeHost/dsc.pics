@@ -70,9 +70,8 @@
                                     {{ $token->last_used_at ? $token->last_used_at->diffForHumans() : __('api.never') }}
                                 </td>
                                 <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
-                                    <button @click="showDeleteModal = true; deleteTokenUrl = '{{ route('profile.api-tokens.destroy', $token) }}'" class="text-red-600 hover:text-red-800 dark:text-red-400 dark:hover:text-red-600 transition duration-150 ease-in-out">
-                                        {{ __('api.delete') }}
-                                    </button>
+                                    <a href="{{ route('profile.api-tokens.activity', $token) }}" class="text-blue-600 hover:text-blue-900 dark:text-blue-400 dark:hover:text-blue-600 mr-3">{{ __('activity.activity_log') }}</a>
+                                    <button @click="showDeleteModal = true; deleteTokenUrl = '{{ route('profile.api-tokens.destroy', $token) }}'" class="text-red-600 hover:text-red-900 dark:text-red-400 dark:hover:text-red-600">{{ __('api.delete') }}</button>
                                 </td>
                             </tr>
                         @endforeach

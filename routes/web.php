@@ -7,6 +7,7 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\LinkController;
 use App\Http\Controllers\LocaleController;
+use App\Http\Controllers\Profile\ApiTokenController;
 use Illuminate\Http\Request;
 
 Route::post('/locale/apply', [LocaleController::class, 'applySuggestion'])->name('locale.apply');
@@ -49,7 +50,8 @@ Route::middleware('auth')->group(function () {
     Route::prefix('profile')->name('profile.')->group(function () {
         Route::get('/', [ProfileController::class, 'show'])->name('show');
         Route::get('/activity', [ProfileController::class, 'activity'])->name('activity');
-        Route::resource('api-tokens', \App\Http\Controllers\Profile\ApiTokenController::class)->except(['show', 'edit', 'update']);
+        Route::resource('api-tokens', ApiTokenController::class)->except(['show', 'edit', 'update']);
+        Route::get('api-tokens/{api_token}/activity', [ApiTokenController::class, 'activity'])->name('api-tokens.activity');
         Route::delete('/', [ProfileController::class, 'destroy'])->name('destroy');
     });
 

@@ -10,6 +10,8 @@ return [
         'links:create' => 'Create Links',
         'links:update' => 'Update Links',
         'links:delete' => 'Delete Links',
+        'user:stats' => 'Read User Stats',
+        'activity:read' => 'Read Activity Logs',
     ],
 
     'descriptions' => [
@@ -21,5 +23,7 @@ return [
         'links:create' => 'Allows creating new shortened links.',
         'links:update' => 'Allows updating your shortened links.',
         'links:delete' => 'Allows deleting your shortened links.',
+        'user:stats' => 'Allows reading your own user statistics.',
+        'activity:read' => 'Allows reading your own activity logs.',
     ],
 ];

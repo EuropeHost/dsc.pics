@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Str;
 use App\Models\ApiToken;
 use Illuminate\Support\Facades\Hash;
+use Spatie\Activitylog\Models\Activity;
 
 class ApiTokenController extends Controller
 {
@@ -17,6 +18,17 @@ class ApiTokenController extends Controller
         $permissions = config('permissions.abilities');
         $descriptions = config('permissions.descriptions');
         return view('profile.api.index', compact('tokens', 'permissions', 'descriptions'));
+    }
+
+    public function activity(ApiToken $apiToken)
+    {
+        if ($apiToken->user_id !== Auth::id()) {
+            abort(403);
+        }
+
+        $activities = Activity::forSubject($apiToken)->latest()->paginate(20);
+
+        return view('profile.api.activity', compact('apiToken', 'activities'));
     }
 
     public function store(Request $request)
