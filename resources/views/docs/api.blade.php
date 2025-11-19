@@ -43,7 +43,7 @@
                                             </div>
                                             <ul class="space-y-1">
                                                 @foreach ($groupEndpoints as $endpoint)
-                                                    @php $endpointId = urlencode($endpoint['route']); @endphp
+                                                    @php $endpointId = urlencode($endpoint['route']).$endpoint['method']; @endphp
                                                     <li>
                                                         <a href="#{{ $endpointId }}" 
                                                            class="group flex items-center px-3 py-2 text-sm rounded-md hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors">
@@ -97,7 +97,7 @@
                                 <!-- Endpoints -->
                                 <div class="space-y-6">
                                     @foreach ($groupEndpoints as $endpoint)
-                                        @php $endpointId = urlencode($endpoint['route']); @endphp
+                                        @php $endpointId = urlencode($endpoint['route']).$endpoint['method']; @endphp
                                         
                                         <article id="{{ $endpointId }}" 
                                                  class="bg-white dark:bg-gray-800 rounded-lg border border-gray-200 dark:border-gray-700 overflow-hidden scroll-mt-24 transition-all duration-300">
