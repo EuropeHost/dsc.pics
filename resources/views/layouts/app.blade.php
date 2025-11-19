@@ -52,7 +52,9 @@
         </script>
 
         @stack('scripts')
-        <x-cookies-notice />
-        <x-locale-suggestion />
+        
+        @include('components.cookies-notice')
+        @include('components.locale-suggestion')
+        @include('components.toast-messages')
     </body>
 </html>

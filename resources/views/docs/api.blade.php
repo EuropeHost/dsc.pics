@@ -208,28 +208,49 @@
 <script>
 function copyToClipboard(button) {
     const code = button.getAttribute('data-code');
+    
+    // Check if clipboard API is available
+    if (!navigator.clipboard) {
+        // Fallback method for older browsers or non-secure contexts
+        fallbackCopyToClipboard(code, button);
+        return;
+    }
+    
     navigator.clipboard.writeText(code).then(() => {
         // Show success toast
-        if (typeof window.showToast === 'function') {
-            window.showToast('success', 'Code copied to clipboard!', 2000);
-        } else {
-            // Fallback if toast is not available
-            const originalText = button.textContent;
-            button.textContent = 'Copied!';
-            button.classList.add('text-green-400');
-            setTimeout(() => {
-                button.textContent = originalText;
-                button.classList.remove('text-green-400');
-            }, 2000);
-        }
+        window.showToast('success', 'Code copied to clipboard!', 2000);
     }).catch(err => {
         // Show error toast
-        if (typeof window.showToast === 'function') {
-            window.showToast('error', 'Failed to copy code. Please try again.', 3000);
-        } else {
-            console.error('Failed to copy:', err);
-        }
+        window.showToast('error', 'Failed to copy code. Please try again.', 3000);
+        console.error('Failed to copy:', err);
     });
+}
+
+function fallbackCopyToClipboard(text, button) {
+    // Create a temporary textarea
+    const textArea = document.createElement('textarea');
+    textArea.value = text;
+    textArea.style.position = 'fixed';
+    textArea.style.top = '-9999px';
+    textArea.style.left = '-9999px';
+    document.body.appendChild(textArea);
+    
+    try {
+        textArea.focus();
+        textArea.select();
+        const successful = document.execCommand('copy');
+        
+        if (successful) {
+            window.showToast('success', 'Code copied to clipboard!', 2000);
+        } else {
+            window.showToast('error', 'Failed to copy code. Please try again.', 3000);
+        }
+    } catch (err) {
+        window.showToast('error', 'Copy not supported in this browser.', 3000);
+        console.error('Fallback copy failed:', err);
+    } finally {
+        document.body.removeChild(textArea);
+    }
 }
 
 // Smooth scroll for anchor links with proper offset
