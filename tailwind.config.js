@@ -32,6 +32,13 @@ export default {
                     900: '#0C4A6E',
                     950: '#082F49',
                 },
+                
+                // API Method Colors
+                'api-get': '#28a745', // Green
+                'api-post': '#007bff', // Blue
+                'api-delete': '#dc3545', // Red
+                'api-put': '#ffc107', // Yellow
+                'api-patch': '#17a2b8', // Cyan
             },
             spacing: {
                 30: '7.5rem', // 120px

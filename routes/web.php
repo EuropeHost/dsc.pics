@@ -8,6 +8,7 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\LinkController;
 use App\Http\Controllers\LocaleController;
 use App\Http\Controllers\Profile\ApiTokenController;
+use App\Http\Controllers\DocsController;
 use Illuminate\Http\Request;
 
 Route::post('/locale/apply', [LocaleController::class, 'applySuggestion'])->name('locale.apply');
@@ -77,3 +78,6 @@ Route::post('/announcement/dismiss/{id}', function ($id) {
     session()->put("announcement_dismissed_{$id}", true);
     return back();
 })->name('announcement.dismiss');
+
+
+Route::get('/docs/api', [DocsController::class, 'api'])->name('docs.api');
