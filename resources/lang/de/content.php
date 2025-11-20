@@ -70,4 +70,11 @@ return [
     'language_suggestion' => 'Es scheint, als wäre Ihre bevorzugte Sprache :suggested_language. Möchten Sie wechseln?',
     'accept' => 'Akzeptieren',
     'decline' => 'Ablehnen',
+    'code' => 'Code',
+
+    'toast_messages' => [
+        'copied_item' => ':item in die Zwischenablage kopiert!',
+        'copy_item_failed' => ':item konnte nicht kopiert werden. Bitte versuchen Sie es erneut.',
+        'copy_not_supported' => 'Kopieren wird in diesem Browser nicht unterstützt.',
+    ]
 ];

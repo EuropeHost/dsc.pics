@@ -70,4 +70,11 @@ return [
     'language_suggestion' => 'Il semble que votre langue préférée soit :suggested_language. Souhaitez-vous changer?',
     'accept' => 'Accepter',
     'decline' => 'Refuser',
+    'code' => 'Code',
+
+    'toast_messages' => [
+        'copied_item' => ':item copié dans le presse-papiers !',
+        'copy_item_failed' => 'Échec de la copie de :item. Veuillez réessayer.',
+        'copy_not_supported' => 'La copie n\'est pas prise en charge dans ce navigateur.',
+    ]
 ];

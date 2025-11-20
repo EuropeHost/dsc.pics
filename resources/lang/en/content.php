@@ -70,4 +70,11 @@ return [
     'language_suggestion' => 'It looks like your preferred language is :suggested_language. Would you like to switch?',
     'accept' => 'Accept',
     'decline' => 'Decline',
+    'code' => 'Code',
+
+    'toast_messages' => [
+        'copied_item' => ':item copied to clipboard!',
+        'copy_item_failed' => 'Failed to copy :item. Please try again.',
+        'copy_not_supported' => 'Copy not supported in this browser.',
+    ]
 ];
