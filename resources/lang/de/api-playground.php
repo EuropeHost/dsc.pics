@@ -1,0 +1,28 @@
+<?php
+
+return [
+    'title' => 'API-Spielplatz',
+    'description' => 'Erkunden und testen Sie die API-Endpunkte.',
+    'api_version' => 'API-Version',
+    'select_version' => 'Wählen Sie eine Version',
+    'endpoint' => 'Endpunkt',
+    'select_endpoint' => 'Wählen Sie einen Endpunkt',
+    'authentication' => 'Authentifizierung',
+    'use_token' => 'API-Token verwenden',
+    'select_your_token' => 'Wählen Sie einen Ihrer Token',
+    'paste_token' => 'Fügen Sie einen Token ein',
+    'token_input_placeholder' => 'Geben Sie Ihren API-Token ein',
+    'request' => 'Anfrage',
+    'method' => 'Methode',
+    'uri' => 'URI',
+    'parameters' => 'Parameter',
+    'headers' => 'Header',
+    'body' => 'Body',
+    'send' => 'Senden',
+    'response' => 'Antwort',
+    'status' => 'Status',
+    'response_headers' => 'Antwort-Header',
+    'response_body' => 'Antwort-Body',
+    'no_endpoints' => 'Für diese Version wurden keine Endpunkte gefunden.',
+    'loading' => 'Wird geladen...',
+];

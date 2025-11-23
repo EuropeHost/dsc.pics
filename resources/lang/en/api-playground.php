@@ -1,0 +1,28 @@
+<?php
+
+return [
+    'title' => 'API Playground',
+    'description' => 'Explore and test the API endpoints.',
+    'api_version' => 'API Version',
+    'select_version' => 'Select a version',
+    'endpoint' => 'Endpoint',
+    'select_endpoint' => 'Select an endpoint',
+    'authentication' => 'Authentication',
+    'use_token' => 'Use API Token',
+    'select_your_token' => 'Select one of your tokens',
+    'paste_token' => 'Paste a token',
+    'token_input_placeholder' => 'Enter your API token',
+    'request' => 'Request',
+    'method' => 'Method',
+    'uri' => 'URI',
+    'parameters' => 'Parameters',
+    'headers' => 'Headers',
+    'body' => 'Body',
+    'send' => 'Send',
+    'response' => 'Response',
+    'status' => 'Status',
+    'response_headers' => 'Response Headers',
+    'response_body' => 'Response Body',
+    'no_endpoints' => 'No endpoints found for this version.',
+    'loading' => 'Loading...',
+];

@@ -3,6 +3,7 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Api\StatsController;
+use App\Http\Controllers\ApiPlaygroundController;
 
 /*
 |--------------------------------------------------------------------------
@@ -18,4 +19,9 @@ use App\Http\Controllers\Api\StatsController;
 
 // Public API Routes
 Route::get('/stats/global', [StatsController::class, 'globalStats']);
+
+Route::middleware('auth:sanctum')->group(function () {
+    Route::get('/playground-data', [ApiPlaygroundController::class, 'data'])->name('api.playground.data');
+});
+
 

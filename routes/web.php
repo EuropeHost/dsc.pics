@@ -8,6 +8,7 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\LinkController;
 use App\Http\Controllers\LocaleController;
 use App\Http\Controllers\Profile\ApiTokenController;
+use App\Http\Controllers\ApiPlaygroundController;
 use App\Http\Controllers\DocsController;
 use Illuminate\Http\Request;
 
@@ -62,6 +63,8 @@ Route::middleware('auth')->group(function () {
         Route::post('/', [LinkController::class, 'store'])->name('store');
         Route::delete('/{link}', [LinkController::class, 'destroy'])->name('destroy');
     });
+
+    Route::get('/api-playground', [ApiPlaygroundController::class, 'index'])->name('api.playground');
 });
 
 Route::get('/i/{media:slug}', [MediaController::class, 'show'])->name('img.show.slug');

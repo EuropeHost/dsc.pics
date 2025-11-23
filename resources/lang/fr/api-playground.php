@@ -1,0 +1,28 @@
+<?php
+
+return [
+    'title' => 'Terrain de jeu de l\'API',
+    'description' => 'Explorez et testez les points de terminaison de l\'API.',
+    'api_version' => 'Version de l\'API',
+    'select_version' => 'Sélectionnez une version',
+    'endpoint' => 'Point de terminaison',
+    'select_endpoint' => 'Sélectionnez un point de terminaison',
+    'authentication' => 'Authentification',
+    'use_token' => 'Utiliser le jeton d\'API',
+    'select_your_token' => 'Sélectionnez l\'un de vos jetons',
+    'paste_token' => 'Collez un jeton',
+    'token_input_placeholder' => 'Entrez votre jeton d\'API',
+    'request' => 'Requête',
+    'method' => 'Méthode',
+    'uri' => 'URI',
+    'parameters' => 'Paramètres',
+    'headers' => 'En-têtes',
+    'body' => 'Corps',
+    'send' => 'Envoyer',
+    'response' => 'Réponse',
+    'status' => 'Statut',
+    'response_headers' => 'En-têtes de réponse',
+    'response_body' => 'Corps de la réponse',
+    'no_endpoints' => 'Aucun point de terminaison trouvé pour cette version.',
+    'loading' => 'Chargement...', 
+];
