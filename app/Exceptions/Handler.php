@@ -56,6 +56,10 @@ class Handler extends ExceptionHandler
 
             $statusCode = $e instanceof HttpException ? $e->getStatusCode() : 500;
 
+            if (!$e instanceof HttpException) {
+                $e = new HttpException($statusCode, $e->getMessage());
+            }
+
             return response()->view('pages.errors', ['exception' => $e], $statusCode);
         });
     }

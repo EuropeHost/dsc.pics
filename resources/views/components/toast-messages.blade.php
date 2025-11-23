@@ -140,26 +140,28 @@
     };
 
     document.addEventListener('DOMContentLoaded', function () {
-        @if (session('success'))
-            window.showToast('success', "{{ session('success') }}");
-        @endif
+        @if (!isset($exception))
+            @if (session('success'))
+                window.showToast('success', "{{ session('success') }}");
+            @endif
 
-        @if (session('error'))
-            window.showToast('error', "{{ session('error') }}");
-        @endif
+            @if (session('error'))
+                window.showToast('error', "{{ session('error') }}");
+            @endif
 
-        @if ($errors->any())
-            @foreach ($errors->all() as $error)
-                window.showToast('error', "{{ $error }}", 10000);
-            @endforeach
-        @endif
+            @if ($errors->any())
+                @foreach ($errors->all() as $error)
+                    window.showToast('error', "{{ $error }}", 10000);
+                @endforeach
+            @endif
 
-        @if (session('warning'))
-            window.showToast('warning', "{{ session('warning') }}");
-        @endif
+            @if (session('warning'))
+                window.showToast('warning', "{{ session('warning') }}");
+            @endif
 
-        @if (session('info'))
-            window.showToast('info', "{{ session('info') }}");
+            @if (session('info'))
+                window.showToast('info', "{{ session('info') }}");
+            @endif
         @endif
     });
 </script>
