@@ -8,6 +8,8 @@
         />
         <title>{{ config('app.name', 'dsc.pics') }}</title>
 
+        @PwaHead
+
         @vite(['resources/css/app.css', 'resources/js/app.js'])
         <link
             rel="stylesheet"
@@ -56,5 +58,6 @@
         @include('components.cookies-notice')
         @include('components.locale-suggestion')
         @include('components.toast-messages')
+        @RegisterServiceWorkerScript
     </body>
 </html>

@@ -31,6 +31,7 @@ class ComposerStaticInit9c491b8531eec05ba41a11d9276a5749
         '58571171fd5812e6e447dce228f52f4d' => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/Support/helpers.php',
         '6124b4c8570aa390c21fafd04a26c69f' => __DIR__ . '/..' . '/myclabs/deep-copy/src/DeepCopy/deep_copy.php',
         '801c31d8ed748cfa537fa45402288c95' => __DIR__ . '/..' . '/psy/psysh/src/functions.php',
+        'f641c05521a842027754f9adafba3d7e' => __DIR__ . '/..' . '/erag/laravel-pwa/src/Pwahelpers.php',
         '37a3dc5111fe8f707ab4c132ef1dbc62' => __DIR__ . '/..' . '/guzzlehttp/guzzle/src/functions_include.php',
         'c72349b1fe8d0deeedd3a52e8aa814d8' => __DIR__ . '/..' . '/mockery/mockery/library/helpers.php',
         'ce9671a430e4846b44e1c68c7611f9f5' => __DIR__ . '/..' . '/mockery/mockery/library/Mockery.php',
@@ -155,6 +156,7 @@ class ComposerStaticInit9c491b8531eec05ba41a11d9276a5749
         ),
         'E' => 
         array (
+            'EragLaravelPwa\\' => 15,
             'Egulias\\EmailValidator\\' => 23,
         ),
         'D' => 
@@ -496,6 +498,10 @@ class ComposerStaticInit9c491b8531eec05ba41a11d9276a5749
         array (
             0 => __DIR__ . '/..' . '/fakerphp/faker/src/Faker',
         ),
+        'EragLaravelPwa\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/erag/laravel-pwa/src',
+        ),
         'Egulias\\EmailValidator\\' => 
         array (
             0 => __DIR__ . '/..' . '/egulias/email-validator/src',
@@ -580,13 +586,21 @@ class ComposerStaticInit9c491b8531eec05ba41a11d9276a5749
         'App\\Exceptions\\Handler' => __DIR__ . '/../..' . '/app/Exceptions/Handler.php',
         'App\\Http\\Controllers\\AdminController' => __DIR__ . '/../..' . '/app/Http/Controllers/AdminController.php',
         'App\\Http\\Controllers\\Api\\StatsController' => __DIR__ . '/../..' . '/app/Http/Controllers/Api/StatsController.php',
+        'App\\Http\\Controllers\\Api\\V2\\ActivityLogController' => __DIR__ . '/../..' . '/app/Http/Controllers/Api/V2/ActivityLogController.php',
+        'App\\Http\\Controllers\\Api\\V2\\ApiController' => __DIR__ . '/../..' . '/app/Http/Controllers/Api/V2/ApiController.php',
+        'App\\Http\\Controllers\\Api\\V2\\LinkController' => __DIR__ . '/../..' . '/app/Http/Controllers/Api/V2/LinkController.php',
+        'App\\Http\\Controllers\\Api\\V2\\MediaController' => __DIR__ . '/../..' . '/app/Http/Controllers/Api/V2/MediaController.php',
+        'App\\Http\\Controllers\\Api\\V2\\StatsController' => __DIR__ . '/../..' . '/app/Http/Controllers/Api/V2/StatsController.php',
+        'App\\Http\\Controllers\\Api\\V2\\UserController' => __DIR__ . '/../..' . '/app/Http/Controllers/Api/V2/UserController.php',
         'App\\Http\\Controllers\\AuthController' => __DIR__ . '/../..' . '/app/Http/Controllers/AuthController.php',
         'App\\Http\\Controllers\\Controller' => __DIR__ . '/../..' . '/app/Http/Controllers/Controller.php',
+        'App\\Http\\Controllers\\DocsController' => __DIR__ . '/../..' . '/app/Http/Controllers/DocsController.php',
         'App\\Http\\Controllers\\LinkController' => __DIR__ . '/../..' . '/app/Http/Controllers/LinkController.php',
         'App\\Http\\Controllers\\LocaleController' => __DIR__ . '/../..' . '/app/Http/Controllers/LocaleController.php',
         'App\\Http\\Controllers\\MediaController' => __DIR__ . '/../..' . '/app/Http/Controllers/MediaController.php',
         'App\\Http\\Controllers\\PageController' => __DIR__ . '/../..' . '/app/Http/Controllers/PageController.php',
         'App\\Http\\Controllers\\ProfileController' => __DIR__ . '/../..' . '/app/Http/Controllers/ProfileController.php',
+        'App\\Http\\Controllers\\Profile\\ApiTokenController' => __DIR__ . '/../..' . '/app/Http/Controllers/Profile/ApiTokenController.php',
         'App\\Http\\Controllers\\StatsController' => __DIR__ . '/../..' . '/app/Http/Controllers/StatsController.php',
         'App\\Http\\Kernel' => __DIR__ . '/../..' . '/app/Http/Kernel.php',
         'App\\Http\\Middleware\\AdminMiddleware' => __DIR__ . '/../..' . '/app/Http/Middleware/AdminMiddleware.php',
@@ -601,6 +615,9 @@ class ComposerStaticInit9c491b8531eec05ba41a11d9276a5749
         'App\\Http\\Middleware\\TrustProxies' => __DIR__ . '/../..' . '/app/Http/Middleware/TrustProxies.php',
         'App\\Http\\Middleware\\ValidateSignature' => __DIR__ . '/../..' . '/app/Http/Middleware/ValidateSignature.php',
         'App\\Http\\Middleware\\VerifyCsrfToken' => __DIR__ . '/../..' . '/app/Http/Middleware/VerifyCsrfToken.php',
+        'App\\Listeners\\LogSuccessfulLogin' => __DIR__ . '/../..' . '/app/Listeners/LogSuccessfulLogin.php',
+        'App\\Listeners\\LogSuccessfulLogout' => __DIR__ . '/../..' . '/app/Listeners/LogSuccessfulLogout.php',
+        'App\\Models\\ApiToken' => __DIR__ . '/../..' . '/app/Models/ApiToken.php',
         'App\\Models\\Link' => __DIR__ . '/../..' . '/app/Models/Link.php',
         'App\\Models\\LinkView' => __DIR__ . '/../..' . '/app/Models/LinkView.php',
         'App\\Models\\Media' => __DIR__ . '/../..' . '/app/Models/Media.php',
@@ -1288,6 +1305,12 @@ class ComposerStaticInit9c491b8531eec05ba41a11d9276a5749
         'Egulias\\EmailValidator\\Warning\\QuotedString' => __DIR__ . '/..' . '/egulias/email-validator/src/Warning/QuotedString.php',
         'Egulias\\EmailValidator\\Warning\\TLD' => __DIR__ . '/..' . '/egulias/email-validator/src/Warning/TLD.php',
         'Egulias\\EmailValidator\\Warning\\Warning' => __DIR__ . '/..' . '/egulias/email-validator/src/Warning/Warning.php',
+        'EragLaravelPwa\\Commands\\PWACommand' => __DIR__ . '/..' . '/erag/laravel-pwa/src/Commands/PWACommand.php',
+        'EragLaravelPwa\\Commands\\PwaPublishCommand' => __DIR__ . '/..' . '/erag/laravel-pwa/src/Commands/PwaPublishCommand.php',
+        'EragLaravelPwa\\Core\\PWA' => __DIR__ . '/..' . '/erag/laravel-pwa/src/Core/PWA.php',
+        'EragLaravelPwa\\EragLaravelPwaServiceProvider' => __DIR__ . '/..' . '/erag/laravel-pwa/src/EragLaravelPwaServiceProvider.php',
+        'EragLaravelPwa\\Facades\\PWA' => __DIR__ . '/..' . '/erag/laravel-pwa/src/Facades/PWA.php',
+        'EragLaravelPwa\\Services\\PWAService' => __DIR__ . '/..' . '/erag/laravel-pwa/src/Services/PWAService.php',
         'Faker\\Calculator\\Ean' => __DIR__ . '/..' . '/fakerphp/faker/src/Faker/Calculator/Ean.php',
         'Faker\\Calculator\\Iban' => __DIR__ . '/..' . '/fakerphp/faker/src/Faker/Calculator/Iban.php',
         'Faker\\Calculator\\Inn' => __DIR__ . '/..' . '/fakerphp/faker/src/Faker/Calculator/Inn.php',
