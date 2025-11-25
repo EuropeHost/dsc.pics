@@ -585,6 +585,7 @@ class ComposerStaticInit9c491b8531eec05ba41a11d9276a5749
         'App\\Console\\Kernel' => __DIR__ . '/../..' . '/app/Console/Kernel.php',
         'App\\Exceptions\\Handler' => __DIR__ . '/../..' . '/app/Exceptions/Handler.php',
         'App\\Http\\Controllers\\AdminController' => __DIR__ . '/../..' . '/app/Http/Controllers/AdminController.php',
+        'App\\Http\\Controllers\\ApiPlaygroundController' => __DIR__ . '/../..' . '/app/Http/Controllers/ApiPlaygroundController.php',
         'App\\Http\\Controllers\\Api\\StatsController' => __DIR__ . '/../..' . '/app/Http/Controllers/Api/StatsController.php',
         'App\\Http\\Controllers\\Api\\V2\\ActivityLogController' => __DIR__ . '/../..' . '/app/Http/Controllers/Api/V2/ActivityLogController.php',
         'App\\Http\\Controllers\\Api\\V2\\ApiController' => __DIR__ . '/../..' . '/app/Http/Controllers/Api/V2/ApiController.php',

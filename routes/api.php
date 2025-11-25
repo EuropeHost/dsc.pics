@@ -21,7 +21,7 @@ use App\Http\Controllers\ApiPlaygroundController;
 Route::get('/stats/global', [StatsController::class, 'globalStats']);
 
 Route::middleware('auth:sanctum')->group(function () {
-    Route::get('/playground-data', [ApiPlaygroundController::class, 'data'])->name('api.playground.data');
+    Route::get('/playground/v2-details', [ApiPlaygroundController::class, 'getV2ApiDetails'])->name('api.playground.v2-details');
 });
 
 
