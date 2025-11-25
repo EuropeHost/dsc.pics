@@ -4,22 +4,46 @@
             @php
                 $viewRoute = Str::startsWith($media->mime, 'video/')
                     ? route('vid.show.slug', $media)
-                    : route('img.show.slug', $media)
+                    : route('img.show.slug', $media);
             @endphp
 
-            <div x-data="{ showCopyModal: false, showDeleteModal: false }"
+            <div x-data="{ 
+                    showCopyModal: false, 
+                    showDeleteModal: false,
+                    isLoading: true 
+                 }"
                  class="group relative border-0 rounded-lg shadow-sm bg-white dark:bg-gray-800 overflow-hidden flex flex-col justify-between transition-all duration-200 hover:shadow-md dark:hover:shadow-lg">
 
-                <div class="relative w-full aspect-video flex items-center justify-center bg-gray-100 dark:bg-gray-900 rounded-t-lg">
+                <div class="relative w-full aspect-video flex items-center justify-center bg-gray-100 dark:bg-gray-900 rounded-t-lg overflow-hidden">
+                    
+                    <div x-show="isLoading"
+                         class="absolute inset-0 z-10 flex items-center justify-center bg-gray-100 dark:bg-gray-900">
+                        <svg class="animate-spin h-8 w-8 text-dscpics-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                            <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                            <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                        </svg>
+                    </div>
+
                     @if(Str::startsWith($media->mime, 'video/'))
-                        <video controls class="absolute inset-0 w-full h-full object-contain rounded-t-lg">
+                        <video controls 
+                               preload="metadata"
+                               @canplay="isLoading = false"
+                               x-on:error="isLoading = false"
+                               class="absolute inset-0 w-full h-full object-contain rounded-t-lg transition-opacity duration-300"
+                               :class="isLoading ? 'opacity-0' : 'opacity-100'">
                             <source src="{{ $viewRoute }}" type="{{ $media->mime }}">
                             {{ __('content.video_not_supported') }}
                         </video>
                     @else
                         <img src="{{ $viewRoute }}"
                              alt="{{ $media->original_name }}"
-                             class="absolute inset-0 w-full h-full object-contain rounded-t-lg">
+                             loading="lazy"
+                             decoding="async"
+                             x-init="$el.complete && (isLoading = false)"
+                             @load="isLoading = false"
+                             x-on:error="isLoading = false"
+                             class="absolute inset-0 w-full h-full object-contain rounded-t-lg transition-opacity duration-300"
+                             :class="isLoading ? 'opacity-0' : 'opacity-100'">
                     @endif
                 </div>
 
@@ -78,7 +102,8 @@
                      x-transition:leave-start="opacity-100 scale-100"
                      x-transition:leave-end="opacity-0 scale-90"
                      class="fixed inset-0 flex items-center justify-center bg-black bg-opacity-60 z-50 p-4"
-                     @click.away="showCopyModal = false">
+                     @click.away="showCopyModal = false"
+                     style="display: none;">
                     <div class="bg-white dark:bg-gray-800 rounded-xl shadow-2xl max-w-xs w-full p-6 text-center">
                         <p class="text-lg font-semibold mb-4 text-gray-800 dark:text-gray-200">{{ __('content.link_copied') }}</p>
                         <button @click="showCopyModal = false"
@@ -97,7 +122,8 @@
                      x-transition:leave-start="opacity-100 scale-100"
                      x-transition:leave-end="opacity-0 scale-90"
                      class="fixed inset-0 flex items-center justify-center bg-black bg-opacity-60 z-50 p-4"
-                     @click.away="showDeleteModal = false">
+                     @click.away="showDeleteModal = false"
+                     style="display: none;">
                     <div class="bg-white dark:bg-gray-800 rounded-xl shadow-2xl max-w-sm w-full p-8">
                         <h3 class="text-xl font-bold text-gray-800 dark:text-gray-200 mb-4">{{ __('content.delete_question_media') }}</h3>
                         <p class="mb-6 text-gray-600 dark:text-gray-400 truncate text-base" title="{{ $media->original_name }}">
