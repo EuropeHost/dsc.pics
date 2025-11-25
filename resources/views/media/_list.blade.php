@@ -7,15 +7,14 @@
                     : route('img.show.slug', $media);
             @endphp
 
-            <div x-data="{ 
-                    showCopyModal: false, 
+            <div x-data="{
                     showDeleteModal: false,
-                    isLoading: true 
+                    isLoading: true
                  }"
                  class="group relative border-0 rounded-lg shadow-sm bg-white dark:bg-gray-800 overflow-hidden flex flex-col justify-between transition-all duration-200 hover:shadow-md dark:hover:shadow-lg">
 
                 <div class="relative w-full aspect-video flex items-center justify-center bg-gray-100 dark:bg-gray-900 rounded-t-lg overflow-hidden">
-                    
+
                     <div x-show="isLoading"
                          class="absolute inset-0 z-10 flex items-center justify-center bg-gray-100 dark:bg-gray-900">
                         <svg class="animate-spin h-8 w-8 text-dscpics-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
@@ -25,7 +24,7 @@
                     </div>
 
                     @if(Str::startsWith($media->mime, 'video/'))
-                        <video controls 
+                        <video controls
                                preload="metadata"
                                @canplay="isLoading = false"
                                x-on:error="isLoading = false"
@@ -65,7 +64,19 @@
                         </a>
 
                         <button
-                            @click="navigator.clipboard.writeText('{{ $viewRoute }}').then(() => { showCopyModal = true })"
+                            @click="
+                                if (navigator.clipboard) {
+                                    navigator.clipboard.writeText('{{ $viewRoute }}')
+                                        .then(() => {
+                                            window.showToast('success', '{{ __('content.toast_messages.copied_item', ['item' => $media->original_name]) }}');
+                                        })
+                                        .catch(() => {
+                                            window.showToast('error', '{{ __('content.toast_messages.copy_item_failed', ['item' => $media->original_name]) }}');
+                                        });
+                                } else {
+                                    window.showToast('error', '{{ __('content.toast_messages.copy_not_supported') }}');
+                                }
+                            "
                             type="button"
                             class="inline-flex items-center justify-center p-2 rounded-md bg-gray-100 text-gray-700 hover:bg-gray-200 dark:bg-gray-700 dark:text-gray-200 dark:hover:bg-gray-600 transition"
                             title="{{ __('content.copy_link_title') }}">
@@ -91,26 +102,6 @@
                                 </select>
                             </form>
                         @endif
-                    </div>
-                </div>
-
-                <div x-show="showCopyModal"
-                     x-transition:enter="ease-out duration-300"
-                     x-transition:enter-start="opacity-0 scale-90"
-                     x-transition:enter-end="opacity-100 scale-100"
-                     x-transition:leave="ease-in duration-200"
-                     x-transition:leave-start="opacity-100 scale-100"
-                     x-transition:leave-end="opacity-0 scale-90"
-                     class="fixed inset-0 flex items-center justify-center bg-black bg-opacity-60 z-50 p-4"
-                     @click.away="showCopyModal = false"
-                     style="display: none;">
-                    <div class="bg-white dark:bg-gray-800 rounded-xl shadow-2xl max-w-xs w-full p-6 text-center">
-                        <p class="text-lg font-semibold mb-4 text-gray-800 dark:text-gray-200">{{ __('content.link_copied') }}</p>
-                        <button @click="showCopyModal = false"
-                                class="px-5 py-2 bg-dscpics-600 text-white rounded-lg hover:bg-dscpics-700 transition transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-dscpics-500 focus:ring-offset-2
-                                       dark:bg-dscpics-500 dark:hover:bg-dscpics-600 dark:focus:ring-dscpics-400">
-                            {{ __('content.close') }}
-                        </button>
                     </div>
                 </div>
 
