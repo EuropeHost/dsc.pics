@@ -14,14 +14,14 @@
                             class="max-w-full max-h-48 h-auto rounded-lg mb-4 object-cover"
                         >
                             <source
-                                src="{{ route('vid.show.slug', $media) }}"
+                                src="{{ route('vid.show.slug', ['media' => $media, 'is_preview' => 'true']) }}"
                                 type="{{ $media->mime }}"
                             />
                             {{ __('content.video_not_supported') }}
                         </video>
                     @else
                         <img
-                            src="{{ route('img.show.slug', $media) }}"
+                            src="{{ route('img.show.slug', ['media' => $media, 'is_preview' => 'true']) }}"
                             class="max-w-full max-h-48 h-auto object-contain rounded-lg mb-4"
                             alt="{{ $media->original_name }}"
                         />

@@ -115,9 +115,9 @@
             <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
                 @foreach ($userMedia as $media)
                     @php
-                        $viewRoute = Str::startsWith($media->mime, 'video/')
-                            ? route('vid.show.slug', $media)
-                            : route('img.show.slug', $media);
+                        $routeName = Str::startsWith($media->mime, 'video/') ? 'vid.show.slug' : 'img.show.slug';
+                        $viewRoute = route($routeName, $media);
+                        $previewRoute = route($routeName, ['media' => $media, 'is_preview' => 'true']);
                     @endphp
 
                     <div
@@ -132,14 +132,14 @@
                                     class="absolute inset-0 w-full h-full object-contain rounded-t-lg"
                                 >
                                     <source
-                                        src="{{ $viewRoute }}"
+                                        src="{{ $previewRoute }}"
                                         type="{{ $media->mime }}"
                                     />
                                     {{ __('content.video_not_supported') }}
                                 </video>
                             @else
                                 <img
-                                    src="{{ $viewRoute }}"
+                                    src="{{ $previewRoute }}"
                                     alt="{{ $media->original_name }}"
                                     class="absolute inset-0 w-full h-full object-contain rounded-t-lg"
                                 />

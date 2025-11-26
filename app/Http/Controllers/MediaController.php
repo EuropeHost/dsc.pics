@@ -67,14 +67,16 @@ class MediaController extends Controller
         return back()->with('success', $isVideo ? __('content.video_uploaded') : __('content.media_uploaded'));
     }
 
-    public function show(Media $media)
+    public function show(Request $request, Media $media)
     {
-        MediaView::create([
-            'media_id' => $media->id,
-            'ip_address' => request()->ip(),
-            'user_agent' => request()->header('User-Agent'),
-            'viewer_user_id' => Auth::id(),
-        ]);
+        if (!$request->boolean('is_preview')) {
+            MediaView::create([
+                'media_id' => $media->id,
+                'ip_address' => request()->ip(),
+                'user_agent' => request()->header('User-Agent'),
+                'viewer_user_id' => Auth::id(),
+            ]);
+        }
         
         /*
 		if (!$media->is_public && (auth()->guest() || auth()->id() !== $media->user_id)) {
