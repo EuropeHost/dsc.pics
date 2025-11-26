@@ -68,7 +68,19 @@
                                     class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium"
                                 >
                                     <button
-                                        onclick="navigator.clipboard.writeText('{{ route('links.show', $link->slug) }}')"
+                                        onclick="
+                                            if (navigator.clipboard) {
+                                                navigator.clipboard.writeText('{{ route('links.show', $link->slug) }}')
+                                                    .then(() => {
+                                                        window.showToast('success', '{{ __('content.toast_messages.copied_item', ['item' => __('links.short_link')]) }}');
+                                                    })
+                                                    .catch(() => {
+                                                        window.showToast('error', '{{ __('content.toast_messages.copy_item_failed', ['item' => __('links.short_link')]) }}');
+                                                    });
+                                            } else {
+                                                window.showToast('error', '{{ __('content.toast_messages.copy_not_supported') }}');
+                                            }
+                                        "
                                         class="text-blue-500 hover:text-blue-700 dark:text-blue-400 dark:hover:text-blue-600 mr-3"
                                     >
                                         {{ __('links.copy') }}
