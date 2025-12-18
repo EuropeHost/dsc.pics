@@ -607,3 +607,15 @@ Authorization: Bearer <token>
     "message": "Activity logs retrieved successfully."
 }
 ```
+
+---
+
+## Star History
+
+<a href="https://www.star-history.com/#europehost/dsc.pics&type=timeline&logscale&legend=bottom-right">
+ <picture>
+   <source media="(prefers-color-scheme: dark)" srcset="https://api.star-history.com/svg?repos=europehost/dsc.pics&type=timeline&theme=dark&logscale&legend=bottom-right" />
+   <source media="(prefers-color-scheme: light)" srcset="https://api.star-history.com/svg?repos=europehost/dsc.pics&type=timeline&logscale&legend=bottom-right" />
+   <img alt="Star History Chart" src="https://api.star-history.com/svg?repos=europehost/dsc.pics&type=timeline&logscale&legend=bottom-right" />
+ </picture>
+</a>
